@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;</TargetFrameworks>
     <Version>1.1.2</Version>
-    <PackageLicense>https://github.com/aoisupersix/Bve5_Parsing/blob/master/License.md</PackageLicense>
+    <PackageLicense>https://github.com/leezer3/Bve5_Parsing/blob/master/License.md</PackageLicense>
     <Description>BveTrainsim5.7 Syntax parsing library.
 Bve5.7構文のパーサライブラリです。</Description>
     <Company>aoisupersix</Company>
     <Authors>aoisupersix</Authors>
     <Copyright>Copyright © 2017-2019 aoisupersix</Copyright>
-    <RepositoryUrl>https://github.com/aoisupersix/Bve5_Parsing</RepositoryUrl>
+    <RepositoryUrl>https://github.com/leezer3/Bve5_Parsing</RepositoryUrl>
     <PackageTags>parsing, bve5</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/aoisupersix/Bve5_Parsing</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/leezer3/Bve5_Parsing</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyVersion>1.1.2.0</AssemblyVersion>
   </PropertyGroup>
