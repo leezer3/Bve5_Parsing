@@ -93,6 +93,23 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
 
         /// <summary>
         /// 引数値を取得します。
+        /// 引数名が存在しない場合は0を返します。
+        /// </summary>
+        /// <param name="name">引数名</param>
+        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
+        /// <returns></returns>
+        public double GetArgumentValueAsDouble(string name, bool isIgnoreCase = false)
+        {
+            string str = GetArgumentValue(name, isIgnoreCase)?.ToString();
+            if (string.IsNullOrEmpty(str))
+            {
+                return 0;
+            }
+            return double.Parse(str);
+        }
+
+        /// <summary>
+        /// 引数値を取得します。
         /// 引数名が存在しない場合はnullを返します。
         /// 引数値はdouble?とstringで保持しているが、どうせobject型で返すなら全てstringでいいのでは、ということで値をstringで返すバージョン。
         /// </summary>
