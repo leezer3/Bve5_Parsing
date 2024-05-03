@@ -420,4 +420,49 @@ namespace Bve5_Parsing.MapGrammar {
         Turn,
     }
 
+    /// <summary>
+    /// Available arguments
+    /// </summary>
+    public enum ArgumentName
+    {
+        // raw value
+        Value,
+        V,
+        B,
+        C,
+        // Object position
+        X,
+        Y,
+        Pitch,
+        Yaw,
+        RX,
+        RY,
+        RZ,
+        // Crack, repeater etc.
+        TrackKey1,
+        TrackKey2,
+        Tilt,
+        Span,
+        Interval,
+        // track
+        Cant,
+        Radius,
+        // RGBA
+        Red,
+        Green,
+        Blue,
+        A,
+        // Fog
+        Density,
+        // TFO
+        TrainKey,
+        TrainFilePath,
+        Direction,
+        Time,
+        Decelerate,
+        StopTime,
+        Accelerate,
+        Speed
+    }
+
 }
