@@ -10,19 +10,20 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
     public class MapData
     {
         #region フィールド
-        private List<Statement> _statements;
+        private readonly List<Statement> _statements;
         #endregion
 
         #region プロパティ
+
         /// <summary>
         /// マップファイルのバージョン
         /// </summary>
-        public string Version { get; protected internal set; }
+        public readonly string Version;
 
         /// <summary>
         /// マップファイルのエンコーディング
         /// </summary>
-        public string Encoding { get; protected internal set; }
+        public readonly string Encoding;
 
         /// <summary>
         /// ストラクチャリストのファイルパス
@@ -58,10 +59,12 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <summary>
         /// インスタンスを生成します。
         /// </summary>
-        public MapData()
+        public MapData(string version, string encoding)
         {
             _statements = new List<Statement>();
             Statements = _statements.AsReadOnly();
+            Version = version;
+            Encoding = encoding;
         }
 
         /// <summary>

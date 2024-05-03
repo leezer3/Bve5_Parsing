@@ -1,4 +1,4 @@
-﻿using Bve5_Parsing.MapGrammar.Attributes;
+using Bve5_Parsing.MapGrammar.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -98,6 +98,23 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <param name="name">引数名</param>
         /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
+        public int GetArgumentValueAsInt(string name, bool isIgnoreCase = false)
+        {
+            string str = GetArgumentValue(name, isIgnoreCase)?.ToString();
+            if (string.IsNullOrEmpty(str))
+            {
+                return 0;
+            }
+            return int.Parse(str);
+        }
+
+        /// <summary>
+        /// 引数値を取得します。
+        /// 引数名が存在しない場合は0を返します。
+        /// </summary>
+        /// <param name="name">引数名</param>
+        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
+        /// <returns></returns>
         public double GetArgumentValueAsDouble(string name, bool isIgnoreCase = false)
         {
             string str = GetArgumentValue(name, isIgnoreCase)?.ToString();
@@ -179,8 +196,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         protected internal PropertyInfo GetArgumentProperty(string name, bool isIgnoreCase = false, BindingFlags flags = BindingFlags.Default)
         {
             return GetArgumentProperties(flags)
-                .Where(p => isIgnoreCase ? p.Name.ToLower() == name.ToLower() : p.Name == name)
-                .FirstOrDefault();
+                .FirstOrDefault(p => isIgnoreCase ? p.Name.ToLower() == name.ToLower() : p.Name == name);
         }
 
         /// <summary>
@@ -219,7 +235,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             {
                 //Syntax3
                 var subElem = (MapSubElementName)GetType().GetProperty("SubElementName").GetValue(this, null);
-                syntax.MapElement = new string[2]
+                syntax.MapElement = new[]
                 {
                     ElementName.GetStringValue().ToLower(),
                     subElem.GetStringValue().ToLower()
@@ -228,7 +244,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             else
             {
                 //Syntax1 or Syntax2
-                syntax.MapElement = new string[1]
+                syntax.MapElement = new[]
                 {
                     ElementName.GetStringValue().ToLower()
                 };

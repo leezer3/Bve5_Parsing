@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,10 +51,7 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>解析結果のMapData</returns>
         public override object Visit(RootNode node)
         {
-            evaluateData = new MapData();
-
-            evaluateData.Version = node.Version;
-            evaluateData.Encoding = node.Encoding;
+            evaluateData = new MapData(node.Version, node.Encoding);
 
             foreach (var state in node.StatementList)
             {
@@ -87,12 +84,7 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>解析結果のSyntaxDataクラス</returns>
         public override object Visit(Syntax1Node node)
         {
-            SyntaxData returnData = new SyntaxData();
-            //構文情報を登録する
-            returnData.Distance = NowDistance;
-            returnData.MapElement = new string[1];
-            returnData.MapElement[0] = node.MapElementName;
-            returnData.Function = node.FunctionName;
+            SyntaxData returnData = new SyntaxData(NowDistance, node.MapElementName, node.FunctionName);
             foreach (string key in node.Arguments.Keys)
             {
                 if (node.Arguments[key] != null)
@@ -111,13 +103,7 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>解析結果のSyntaxDataクラス</returns>
         public override object Visit(Syntax2Node node)
         {
-            SyntaxData returnData = new SyntaxData();
-            //構文情報を登録する
-            returnData.Distance = NowDistance;
-            returnData.MapElement = new string[1];
-            returnData.MapElement[0] = node.MapElementName;
-            returnData.Key = Visit(node.Key).ToString();
-            returnData.Function = node.FunctionName;
+            SyntaxData returnData = new SyntaxData(NowDistance, node.MapElementName, node.FunctionName, Visit(node.Key).ToString());
             foreach (string key in node.Arguments.Keys)
             {
                 if (node.Arguments[key] != null)
@@ -967,7 +953,7 @@ namespace Bve5_Parsing.MapGrammar
 
             // NTFSではパスの大文字小文字が無視されるが、ext3では区別されるため、環境によっては構文内に指定されたパスを取得できない可能性がある。
             // そのため大文字小文字を無視してファイルパスを取得する
-            var splitPath = fileRelativePath.Split(new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+            var splitPath = fileRelativePath.Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
 
             // ディレクトリ取得
             var originallyDirPath = dirAbsolutePath;

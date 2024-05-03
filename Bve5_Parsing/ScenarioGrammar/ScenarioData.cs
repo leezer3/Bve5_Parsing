@@ -9,8 +9,8 @@ namespace Bve5_Parsing.ScenarioGrammar
     /// </summary>
     public class ScenarioData
     {
-        private List<FilePath> _route;
-        private List<FilePath> _vehicle;
+        private readonly List<FilePath> _route;
+        private readonly List<FilePath> _vehicle;
 
         #region プロパティ
         /// <summary>
@@ -121,16 +121,10 @@ namespace Bve5_Parsing.ScenarioGrammar
             Version = version;
             Encoding = encoding;
 
-            if (route == null)
-                _route = new List<FilePath>();
-            else
-                _route = route.ToList();
+            _route = route == null ? new List<FilePath>() : route.ToList();
             Route = _route.AsReadOnly();
 
-            if (vehicle == null)
-                _vehicle = new List<FilePath>();
-            else
-                _vehicle = vehicle.ToList();
+            _vehicle = vehicle == null ? new List<FilePath>() : vehicle.ToList();
             Vehicle = _vehicle.AsReadOnly();
 
             Image = image;

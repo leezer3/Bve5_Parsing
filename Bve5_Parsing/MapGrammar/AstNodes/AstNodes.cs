@@ -185,17 +185,16 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
             {
                 var arg = evaluator.Visit(Time); // 必ずTimeに引数が入っている
 
-                if (arg is string)
+                if (arg is string str)
                 {
                     // TODO: Validate
-                    double tmp;
-                    if (double.TryParse((string)arg, out tmp))
+                    if (double.TryParse(str, out double tmp))
                     {
                         pretrainPassStatement.Second = tmp;
                     }
                     else
                     {
-                        pretrainPassStatement.Time = (string)arg;
+                        pretrainPassStatement.Time = str;
                     }
                 }
                 else
@@ -225,17 +224,16 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
             {
                 var arg = evaluator.Visit(Time); // 必ずTimeに引数が入っている
 
-                if (arg is string)
+                if (arg is string str)
                 {
                     // TODO: Validate
-                    double tmp;
-                    if (double.TryParse((string)arg, out tmp))
+                    if (double.TryParse(str, out double tmp))
                     {
                         trainEnableStatement.Second = tmp;
                     }
                     else
                     {
-                        trainEnableStatement.Time = (string)arg;
+                        trainEnableStatement.Time = str;
                     }
                 }
                 else

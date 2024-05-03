@@ -15,7 +15,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <summary>
         /// 引数
         /// </summary>
-        private Dictionary<string, object> _arguments;
+        private readonly Dictionary<string, object> _arguments;
         #endregion
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         public SyntaxData(double distance, string mapElement, string function)
         {
             Distance = distance;
-            MapElement = new string[] { mapElement };
+            MapElement = new[] { mapElement };
             Function = function;
 
             _arguments = new Dictionary<string, object>();
@@ -75,7 +75,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         public SyntaxData(double distance, string mapElement, string key, string function)
         {
             Distance = distance;
-            MapElement = new string[] { mapElement };
+            MapElement = new[] { mapElement };
             Key = key;
             Function = function;
 
@@ -87,13 +87,14 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 構文タイプ3のインスタンスを生成します。
         /// </summary>
         /// <param name="distance">距離程</param>
-        /// <param name="mapElement">マップ要素</param>
+        /// <param name="mapElement1">マップ要素</param>
+        /// <param name="mapElement2">マップ要素</param>
         /// <param name="key">キー名</param>
         /// <param name="function">関数名</param>
         public SyntaxData(double distance, string mapElement1, string mapElement2, string key, string function)
         {
             Distance = distance;
-            MapElement = new string[] { mapElement1, mapElement2 };
+            MapElement = new[] { mapElement1, mapElement2 };
             Key = key;
             Function = function;
 
