@@ -1,4 +1,4 @@
-/*
+﻿/*
  * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
  * 編集は行わないでください。
  */
@@ -2169,12 +2169,12 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 可変長引数：先行列車が n 閉そく先に存在する場合の信号インデックス（0: この閉塞）のリスト
         /// </summary>
-        protected List<double?> _signals = new List<double?>();
+        protected List<double?> _aspects = new List<double?>();
 
         /// <summary>
         /// 可変長引数：先行列車が n 閉そく先に存在する場合の信号インデックス（0: この閉塞）の読み取り専用コレクション
         /// </summary>
-        public ReadOnlyCollection<double?> Signals => _signals.AsReadOnly();
+        public ReadOnlyCollection<double?> SignalAspects => _aspects.AsReadOnly();
         #endregion Args
 
         /// <summary>
@@ -2192,16 +2192,16 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// </summary>
         public void AddSignal(double? signal)
         {
-            _signals.Add(signal);
+            _aspects.Add(signal);
         }
 
         /// <summary>
         /// 可変長引数：先行列車が n 閉そく先に存在する場合の信号インデックス（0: この閉塞）に値をセットします。
         /// テスト用
         /// </summary>
-        public Statement SetSignals(params double?[] signals)
+        public Statement SetAspects(params double?[] signals)
         {
-            _signals.AddRange(signals);
+            _aspects.AddRange(signals);
             return this;
         }
 
@@ -2212,9 +2212,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         public override SyntaxData ToSyntaxData()
         {
             var syntax = base.ToSyntaxData();
-            for (var i = 0; i < _signals.Count; i++)
+            for (var i = 0; i < _aspects.Count; i++)
             {
-                syntax.SetArg($"signal{i + 1}", _signals[i]);
+                syntax.SetArg($"signal{i + 1}", _aspects[i]);
             }
 
             return syntax;
@@ -2293,12 +2293,12 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 可変長引数：走行速度 [km/h] （null: 許容速度なし）のリスト
         /// </summary>
-        protected List<double?> _vs = new List<double?>();
+        protected List<double?> _speedLimits = new List<double?>();
 
         /// <summary>
         /// 可変長引数：走行速度 [km/h] （null: 許容速度なし）の読み取り専用コレクション
         /// </summary>
-        public ReadOnlyCollection<double?> Vs => _vs.AsReadOnly();
+        public ReadOnlyCollection<double?> SpeedLimits => _speedLimits.AsReadOnly();
         #endregion Args
 
         /// <summary>
@@ -2316,16 +2316,16 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// </summary>
         public void AddV(double? v)
         {
-            _vs.Add(v);
+            _speedLimits.Add(v);
         }
 
         /// <summary>
         /// 可変長引数：走行速度 [km/h] （null: 許容速度なし）に値をセットします。
         /// テスト用
         /// </summary>
-        public Statement SetVs(params double?[] vs)
+        public Statement SetSpeedLimits(params double?[] vs)
         {
-            _vs.AddRange(vs);
+            _speedLimits.AddRange(vs);
             return this;
         }
 
@@ -2336,9 +2336,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         public override SyntaxData ToSyntaxData()
         {
             var syntax = base.ToSyntaxData();
-            for (var i = 0; i < _vs.Count; i++)
+            for (var i = 0; i < _speedLimits.Count; i++)
             {
-                syntax.SetArg($"v{i + 1}", _vs[i]);
+                syntax.SetArg($"v{i + 1}", _speedLimits[i]);
             }
 
             return syntax;
@@ -4069,7 +4069,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Legacy.Curve(radius, cant);
+    /// Legacy.Curve(Radius, Cant);
     /// </summary>
     public partial class LegacyCurveStatement : Statement
     {
@@ -4102,13 +4102,13 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// 引数：曲線半径 [m] (正: 右曲線, 負: 左曲線)
         /// </summary>
         [Argument]
-        public double? radius { get; set; }
+        public double? Radius { get; set; }
 
         /// <summary>
         /// 引数：カント [m]
         /// </summary>
         [Argument]
-        public double? cant { get; set; }
+        public double? Cant { get; set; }
         #endregion Args
 
         /// <summary>
@@ -4123,7 +4123,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Legacy.Pitch(rate?);
+    /// Legacy.Pitch(Rate?);
     /// </summary>
     public partial class LegacyPitchStatement : Statement
     {
@@ -4156,7 +4156,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// 引数：勾配 [‰]（省略可能）
         /// </summary>
         [Argument(Optional = true)]
-        public double? rate { get; set; }
+        public double? Rate { get; set; }
         #endregion Args
 
         /// <summary>
@@ -4171,7 +4171,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Legacy.Turn(slope?);
+    /// Legacy.Turn(Slope?);
     /// </summary>
     public partial class LegacyTurnStatement : Statement
     {
@@ -4204,7 +4204,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// 引数：傾き(+: 右, -: 左)（省略可能）
         /// </summary>
         [Argument(Optional = true)]
-        public double? slope { get; set; }
+        public double? Slope { get; set; }
         #endregion Args
 
         /// <summary>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
  * 編集は行わないでください。
  */
@@ -3798,7 +3798,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Legacy.Curve(radius, cant);
+    /// Legacy.Curve(Radius, Cant);
     /// </summary>
     [Deprecated]
     public partial class LegacyCurveNode : SyntaxNode
@@ -3850,7 +3850,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Legacy.Pitch(rate?);
+    /// Legacy.Pitch(Rate?);
     /// </summary>
     [Deprecated]
     public partial class LegacyPitchNode : SyntaxNode
@@ -3884,7 +3884,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// 引数：勾配 [‰]（省略可能）
         /// </summary>
         [Argument(Optional = true)]
-        public MapGrammarAstNodes rate { get; set; }
+        public MapGrammarAstNodes Rate { get; set; }
         #endregion Args
 
         /// <summary>
@@ -3896,7 +3896,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Legacy.Turn(slope?);
+    /// Legacy.Turn(Slope?);
     /// </summary>
     [Deprecated]
     public partial class LegacyTurnNode : SyntaxNode

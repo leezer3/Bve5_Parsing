@@ -1,4 +1,4 @@
-/*
+﻿/*
  * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
  * 編集は行わないでください。
  */
@@ -188,8 +188,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveBegintransitionStatement(0)
-                        {
-                        }
                     }));
 
             // Curve.Begintransition();
@@ -200,8 +198,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveBegintransitionStatement(0)
-                        {
-                        }
                     }));
 
             // Curve.Begintransition();
@@ -212,8 +208,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveBegintransitionStatement(0)
-                        {
-                        }
                     }));
         }
 
@@ -317,8 +311,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveEndStatement(0)
-                        {
-                        }
                     }));
 
             // Curve.End();
@@ -329,8 +321,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveEndStatement(0)
-                        {
-                        }
                     }));
 
             // Curve.End();
@@ -341,8 +331,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveEndStatement(0)
-                        {
-                        }
                     }));
         }
 
@@ -361,8 +349,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CurveInterpolateStatement(0)
-                        {
-                        }
                     }));
 
             // Curve.Interpolate(Radius);
@@ -429,8 +415,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientBegintransitionStatement(0)
-                        {
-                        }
                     }));
 
             // Gradient.Begintransition();
@@ -441,8 +425,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientBegintransitionStatement(0)
-                        {
-                        }
                     }));
 
             // Gradient.Begintransition();
@@ -453,8 +435,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientBegintransitionStatement(0)
-                        {
-                        }
                     }));
         }
 
@@ -541,8 +521,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientEndStatement(0)
-                        {
-                        }
                     }));
 
             // Gradient.End();
@@ -553,8 +531,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientEndStatement(0)
-                        {
-                        }
                     }));
 
             // Gradient.End();
@@ -565,8 +541,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientEndStatement(0)
-                        {
-                        }
                     }));
         }
 
@@ -585,8 +559,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new GradientInterpolateStatement(0)
-                        {
-                        }
                     }));
 
             // Gradient.Interpolate(Gradient);
@@ -1428,10 +1400,7 @@ namespace Bve5_ParsingTests
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new SectionBeginStatement(0)
-                        {
-                        }
-                        .SetSignals(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SectionBeginStatement(0).SetAspects(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
         }
 
@@ -1449,10 +1418,7 @@ namespace Bve5_ParsingTests
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new SectionBeginnewStatement(0)
-                        {
-                        }
-                        .SetSignals(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SectionBeginnewStatement(0).SetAspects(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Section.Beginnew(Signal);
@@ -1462,10 +1428,7 @@ namespace Bve5_ParsingTests
                     version: "2.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SectionBeginnewStatement(0)
-                        {
-                        }
-                        .SetSignals(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SectionBeginnewStatement(0).SetAspects(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Section.Beginnew(Signal);
@@ -1475,10 +1438,7 @@ namespace Bve5_ParsingTests
                     version: "1.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SectionBeginnewStatement(0)
-                        {
-                        }
-                        .SetSignals(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SectionBeginnewStatement(0).SetAspects(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
         }
 
@@ -1496,10 +1456,7 @@ namespace Bve5_ParsingTests
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new SectionSetspeedlimitStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SectionSetspeedlimitStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
         }
 
@@ -1517,10 +1474,7 @@ namespace Bve5_ParsingTests
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new SignalSpeedlimitStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SignalSpeedlimitStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Signal.Speedlimit(V);
@@ -1530,10 +1484,7 @@ namespace Bve5_ParsingTests
                     version: "2.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SignalSpeedlimitStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SignalSpeedlimitStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Signal.Speedlimit(V);
@@ -1543,10 +1494,7 @@ namespace Bve5_ParsingTests
                     version: "1.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SignalSpeedlimitStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SignalSpeedlimitStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
         }
 
@@ -1564,10 +1512,7 @@ namespace Bve5_ParsingTests
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new SpeedlimitSetsignalStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SpeedlimitSetsignalStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Speedlimit.Setsignal(V);
@@ -1577,10 +1522,7 @@ namespace Bve5_ParsingTests
                     version: "2.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SpeedlimitSetsignalStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SpeedlimitSetsignalStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
 
             // Speedlimit.Setsignal(V);
@@ -1590,10 +1532,7 @@ namespace Bve5_ParsingTests
                     version: "1.00",
                     syntaxes: new List<Statement>()
                     {
-                        new SpeedlimitSetsignalStatement(0)
-                        {
-                        }
-                        .SetVs(1.0, 1.0, 1.0, 1.0, 1.0)
+                        new SpeedlimitSetsignalStatement(0).SetSpeedLimits(1.0, 1.0, 1.0, 1.0, 1.0)
                     }));
         }
 
@@ -1853,8 +1792,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new SpeedlimitEndStatement(0)
-                        {
-                        }
                     }));
 
             // Speedlimit.End();
@@ -1865,8 +1802,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new SpeedlimitEndStatement(0)
-                        {
-                        }
                     }));
 
             // Speedlimit.End();
@@ -1877,8 +1812,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new SpeedlimitEndStatement(0)
-                        {
-                        }
                     }));
         }
 
@@ -2066,8 +1999,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new FogInterpolateStatement(0)
-                        {
-                        }
                     }));
 
             // Fog.Interpolate(Density);
@@ -2192,8 +2123,6 @@ namespace Bve5_ParsingTests
                     syntaxes: new List<Statement>()
                     {
                         new CabilluminanceInterpolateStatement(0)
-                        {
-                        }
                     }));
 
             // Cabilluminance.Interpolate(Value);
@@ -2985,13 +2914,13 @@ namespace Bve5_ParsingTests
         }
 
         /// <summary>
-        /// Legacy.Curve(radius, cant);
+        /// Legacy.Curve(Radius, Cant);
         /// </summary>
         [Fact]
         public void LegacyCurveTest()
         {
 
-            // Legacy.Curve(radius, cant);
+            // Legacy.Curve(Radius, Cant);
             Check(
                 ExecParse("BveTs Map 2.02\n0;Legacy.Curve(1.0, 1.0);"),
                 new MapData(
@@ -3000,12 +2929,12 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyCurveStatement(0)
                         {
-                            radius = 1.0,
-                            cant = 1.0
+                            Radius = 1.0,
+                            Cant = 1.0
                         }
                     }));
 
-            // Legacy.Curve(radius, cant);
+            // Legacy.Curve(Radius, Cant);
             Check(
                 ExecParse("BveTs Map 2.00\n0;Legacy.Curve(1.0, 1.0);"),
                 new MapData(
@@ -3014,12 +2943,12 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyCurveStatement(0)
                         {
-                            radius = 1.0,
-                            cant = 1.0
+                            Radius = 1.0,
+                            Cant = 1.0
                         }
                     }));
 
-            // Legacy.Curve(radius, cant);
+            // Legacy.Curve(Radius, Cant);
             Check(
                 ExecParse("BveTs Map 1.00\n0;Legacy.Curve(1.0, 1.0);"),
                 new MapData(
@@ -3028,20 +2957,20 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyCurveStatement(0)
                         {
-                            radius = 1.0,
-                            cant = 1.0
+                            Radius = 1.0,
+                            Cant = 1.0
                         }
                     }));
         }
 
         /// <summary>
-        /// Legacy.Pitch(rate?);
+        /// Legacy.Pitch(Rate?);
         /// </summary>
         [Fact]
         public void LegacyPitchTest()
         {
 
-            // Legacy.Pitch(rate);
+            // Legacy.Pitch(Rate);
             Check(
                 ExecParse("BveTs Map 2.02\n0;Legacy.Pitch(1.0);"),
                 new MapData(
@@ -3050,11 +2979,11 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyPitchStatement(0)
                         {
-                            rate = 1.0
+                            Rate = 1.0
                         }
                     }));
 
-            // Legacy.Pitch(rate);
+            // Legacy.Pitch(Rate);
             Check(
                 ExecParse("BveTs Map 2.00\n0;Legacy.Pitch(1.0);"),
                 new MapData(
@@ -3063,11 +2992,11 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyPitchStatement(0)
                         {
-                            rate = 1.0
+                            Rate = 1.0
                         }
                     }));
 
-            // Legacy.Pitch(rate);
+            // Legacy.Pitch(Rate);
             Check(
                 ExecParse("BveTs Map 1.00\n0;Legacy.Pitch(1.0);"),
                 new MapData(
@@ -3076,19 +3005,19 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyPitchStatement(0)
                         {
-                            rate = 1.0
+                            Rate = 1.0
                         }
                     }));
         }
 
         /// <summary>
-        /// Legacy.Turn(slope?);
+        /// Legacy.Turn(Slope?);
         /// </summary>
         [Fact]
         public void LegacyTurnTest()
         {
 
-            // Legacy.Turn(slope);
+            // Legacy.Turn(Slope);
             Check(
                 ExecParse("BveTs Map 2.02\n0;Legacy.Turn(1.0);"),
                 new MapData(
@@ -3097,11 +3026,11 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyTurnStatement(0)
                         {
-                            slope = 1.0
+                            Slope = 1.0
                         }
                     }));
 
-            // Legacy.Turn(slope);
+            // Legacy.Turn(Slope);
             Check(
                 ExecParse("BveTs Map 2.00\n0;Legacy.Turn(1.0);"),
                 new MapData(
@@ -3110,11 +3039,11 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyTurnStatement(0)
                         {
-                            slope = 1.0
+                            Slope = 1.0
                         }
                     }));
 
-            // Legacy.Turn(slope);
+            // Legacy.Turn(Slope);
             Check(
                 ExecParse("BveTs Map 1.00\n0;Legacy.Turn(1.0);"),
                 new MapData(
@@ -3123,7 +3052,7 @@ namespace Bve5_ParsingTests
                     {
                         new LegacyTurnStatement(0)
                         {
-                            slope = 1.0
+                            Slope = 1.0
                         }
                     }));
         }
