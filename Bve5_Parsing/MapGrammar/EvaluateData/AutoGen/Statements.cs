@@ -1,17 +1,13 @@
-﻿/*
- * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
- * 編集は行わないでください。
- */
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Bve5_Parsing.MapGrammar.Attributes;
 
 namespace Bve5_Parsing.MapGrammar.EvaluateData {
 
     /// <summary>
-    /// Curve.Setgauge(Value);
+    /// Curve.SetGauge(Value);
     /// </summary>
-    public partial class CurveSetgaugeStatement : Statement
+    public class CurveSetGaugeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -23,7 +19,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setgauge;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetGauge;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -48,18 +44,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetgaugeStatement() { }
+        public CurveSetGaugeStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetgaugeStatement(double distance) : base(distance) { }
+        public CurveSetGaugeStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Gauge.Set(Value);
     /// </summary>
-    public partial class GaugeSetStatement : CurveSetgaugeStatement
+    public class GaugeSetStatement : CurveSetGaugeStatement
     {
         #region SyntaxInfo
 
@@ -98,7 +94,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Curve.Gauge(Value);
     /// </summary>
-    public partial class CurveGaugeStatement : CurveSetgaugeStatement
+    public class CurveGaugeStatement : CurveSetGaugeStatement
     {
         #region SyntaxInfo
 
@@ -135,9 +131,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Curve.Setcenter(X);
+    /// Curve.SetCenter(X);
     /// </summary>
-    public partial class CurveSetcenterStatement : Statement
+    public class CurveSetCenterStatement : Statement
     {
         #region SyntaxInfo
 
@@ -149,7 +145,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setcenter;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetCenter;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -174,18 +170,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetcenterStatement() { }
+        public CurveSetCenterStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetcenterStatement(double distance) : base(distance) { }
+        public CurveSetCenterStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Curve.Setfunction(Id);
+    /// Curve.SetFunction(Id);
     /// </summary>
-    public partial class CurveSetfunctionStatement : Statement
+    public class CurveSetFunctionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -197,7 +193,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setfunction;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetFunction;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -222,18 +218,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetfunctionStatement() { }
+        public CurveSetFunctionStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CurveSetfunctionStatement(double distance) : base(distance) { }
+        public CurveSetFunctionStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Curve.Begintransition();
+    /// Curve.BeginTransition();
     /// </summary>
-    public partial class CurveBegintransitionStatement : Statement
+    public class CurveBeginTransitionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -245,7 +241,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -262,18 +258,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CurveBegintransitionStatement() { }
+        public CurveBeginTransitionStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CurveBegintransitionStatement(double distance) : base(distance) { }
+        public CurveBeginTransitionStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Curve.Begin(Radius, Cant?);
     /// </summary>
-    public partial class CurveBeginStatement : Statement
+    public class CurveBeginStatement : Statement
     {
         #region SyntaxInfo
 
@@ -325,9 +321,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Curve.Begincircular(Radius, Cant?);
+    /// Curve.BeginCircular(Radius, Cant?);
     /// </summary>
-    public partial class CurveBegincircularStatement : CurveBeginStatement
+    public class CurveBeginCircularStatement : CurveBeginStatement
     {
         #region SyntaxInfo
 
@@ -339,7 +335,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begincircular;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginCircular;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -355,18 +351,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CurveBegincircularStatement() { }
+        public CurveBeginCircularStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CurveBegincircularStatement(double distance) : base(distance) { }
+        public CurveBeginCircularStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Curve.End();
     /// </summary>
-    public partial class CurveEndStatement : Statement
+    public class CurveEndStatement : Statement
     {
         #region SyntaxInfo
 
@@ -406,7 +402,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Curve.Interpolate(Radius?, Cant?);
     /// </summary>
-    public partial class CurveInterpolateStatement : Statement
+    public class CurveInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -460,7 +456,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Curve.Change(Radius);
     /// </summary>
-    public partial class CurveChangeStatement : Statement
+    public class CurveChangeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -506,9 +502,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Gradient.Begintransition();
+    /// Gradient.BeginTransition();
     /// </summary>
-    public partial class GradientBegintransitionStatement : Statement
+    public class GradientBeginTransitionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -520,7 +516,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -537,18 +533,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public GradientBegintransitionStatement() { }
+        public GradientBeginTransitionStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public GradientBegintransitionStatement(double distance) : base(distance) { }
+        public GradientBeginTransitionStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Gradient.Begin(Gradient);
     /// </summary>
-    public partial class GradientBeginStatement : Statement
+    public class GradientBeginStatement : Statement
     {
         #region SyntaxInfo
 
@@ -594,9 +590,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Gradient.Beginconst(Gradient);
+    /// Gradient.BeginConst(Gradient);
     /// </summary>
-    public partial class GradientBeginconstStatement : GradientBeginStatement
+    public class GradientBeginConstStatement : GradientBeginStatement
     {
         #region SyntaxInfo
 
@@ -608,7 +604,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Beginconst;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginConst;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -624,18 +620,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public GradientBeginconstStatement() { }
+        public GradientBeginConstStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public GradientBeginconstStatement(double distance) : base(distance) { }
+        public GradientBeginConstStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Gradient.End();
     /// </summary>
-    public partial class GradientEndStatement : Statement
+    public class GradientEndStatement : Statement
     {
         #region SyntaxInfo
 
@@ -675,7 +671,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Gradient.Interpolate(Gradient?);
     /// </summary>
-    public partial class GradientInterpolateStatement : Statement
+    public class GradientInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -723,7 +719,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].X.Interpolate(X?, Radius?);
     /// </summary>
-    public partial class TrackXInterpolateStatement : Statement
+    public class TrackXInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -787,7 +783,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].Y.Interpolate(Y?, Radius?);
     /// </summary>
-    public partial class TrackYInterpolateStatement : Statement
+    public class TrackYInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -851,7 +847,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].Position(X, Y, RadiusH?, RadiusV?);
     /// </summary>
-    public partial class TrackPositionStatement : Statement
+    public class TrackPositionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -920,9 +916,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setgauge(Gauge);
+    /// Track[TrackKey].Cant.SetGauge(Gauge);
     /// </summary>
-    public partial class TrackCantSetgaugeStatement : Statement
+    public class TrackCantSetGaugeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -939,7 +935,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setgauge;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetGauge;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -969,18 +965,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetgaugeStatement() { }
+        public TrackCantSetGaugeStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetgaugeStatement(double distance) : base(distance) { }
+        public TrackCantSetGaugeStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Track[TrackKey].Gauge(Gauge);
     /// </summary>
-    public partial class TrackGaugeStatement : TrackCantSetgaugeStatement
+    public class TrackGaugeStatement : TrackCantSetGaugeStatement
     {
         #region SyntaxInfo
 
@@ -1017,9 +1013,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setcenter(X);
+    /// Track[TrackKey].Cant.SetCenter(X);
     /// </summary>
-    public partial class TrackCantSetcenterStatement : Statement
+    public class TrackCantSetCenterStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1036,7 +1032,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setcenter;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetCenter;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1066,18 +1062,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetcenterStatement() { }
+        public TrackCantSetCenterStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetcenterStatement(double distance) : base(distance) { }
+        public TrackCantSetCenterStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setfunction(Id);
+    /// Track[TrackKey].Cant.SetFunction(Id);
     /// </summary>
-    public partial class TrackCantSetfunctionStatement : Statement
+    public class TrackCantSetFunctionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1094,7 +1090,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setfunction;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetFunction;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1124,18 +1120,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetfunctionStatement() { }
+        public TrackCantSetFunctionStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantSetfunctionStatement(double distance) : base(distance) { }
+        public TrackCantSetFunctionStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Begintransition();
+    /// Track[TrackKey].Cant.BeginTransition();
     /// </summary>
-    public partial class TrackCantBegintransitionStatement : Statement
+    public class TrackCantBeginTransitionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1152,7 +1148,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1174,18 +1170,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantBegintransitionStatement() { }
+        public TrackCantBeginTransitionStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public TrackCantBegintransitionStatement(double distance) : base(distance) { }
+        public TrackCantBeginTransitionStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Track[TrackKey].Cant.Begin(Cant);
     /// </summary>
-    public partial class TrackCantBeginStatement : Statement
+    public class TrackCantBeginStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1243,7 +1239,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].Cant.End();
     /// </summary>
-    public partial class TrackCantEndStatement : Statement
+    public class TrackCantEndStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1293,7 +1289,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].Cant.Interpolate(Cant?);
     /// </summary>
-    public partial class TrackCantInterpolateStatement : Statement
+    public class TrackCantInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1351,7 +1347,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Track[TrackKey].Cant(Cant?);
     /// </summary>
-    public partial class TrackCantStatement : TrackCantInterpolateStatement
+    public class TrackCantStatement : TrackCantInterpolateStatement
     {
         #region SyntaxInfo
 
@@ -1390,7 +1386,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Structure.Load(FilePath);
     /// </summary>
-    public partial class StructureLoadStatement : Statement
+    public class StructureLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1438,7 +1434,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Structure[StructureKey].Put(TrackKey, X, Y, Z, RX, RY, RZ, Tilt, Span);
     /// </summary>
-    public partial class StructurePutStatement : Statement
+    public class StructurePutStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1539,7 +1535,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Structure[StructureKey].Put0(TrackKey, Tilt, Span);
     /// </summary>
-    public partial class StructurePut0Statement : Statement
+    public class StructurePut0Statement : Statement
     {
         #region SyntaxInfo
 
@@ -1602,9 +1598,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Structure[StructureKey].Putbetween(TrackKey1, TrackKey2, Flag?);
+    /// Structure[StructureKey].PutBetween(TrackKey1, TrackKey2, Flag?);
     /// </summary>
-    public partial class StructurePutbetweenStatement : Statement
+    public class StructurePutBetweenStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1616,7 +1612,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Putbetween;
+        public override MapFunctionName? FunctionName => MapFunctionName.PutBetween;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1658,18 +1654,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public StructurePutbetweenStatement() { }
+        public StructurePutBetweenStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public StructurePutbetweenStatement(double distance) : base(distance) { }
+        public StructurePutBetweenStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Repeater[RepeaterKey].Begin(TrackKey, X, Y, Z, RX, RY, RZ, Tilt, Span, Interval, StructureKey);
     /// </summary>
-    public partial class RepeaterBeginStatement : Statement
+    public class RepeaterBeginStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1819,7 +1815,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Repeater[RepeaterKey].Begin0(TrackKey, Tilt, Span, Interval, StructureKey);
     /// </summary>
-    public partial class RepeaterBegin0Statement : Statement
+    public class RepeaterBegin0Statement : Statement
     {
         #region SyntaxInfo
 
@@ -1933,7 +1929,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Repeater[RepeaterKey].End();
     /// </summary>
-    public partial class RepeaterEndStatement : Statement
+    public class RepeaterEndStatement : Statement
     {
         #region SyntaxInfo
 
@@ -1978,7 +1974,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Background.Change(StructureKey);
     /// </summary>
-    public partial class BackgroundChangeStatement : Statement
+    public class BackgroundChangeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2026,7 +2022,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Station.Load(FilePath);
     /// </summary>
-    public partial class StationLoadStatement : Statement
+    public class StationLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2074,7 +2070,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Station[StationKey].Put(Door, Margin1, Margin2);
     /// </summary>
-    public partial class StationPutStatement : Statement
+    public class StationPutStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2139,7 +2135,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Section.Begin(Signal);
     /// </summary>
-    public partial class SectionBeginStatement : Statement
+    public class SectionBeginStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2222,9 +2218,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Section.Beginnew(Signal);
+    /// Section.BeginNew(Signal);
     /// </summary>
-    public partial class SectionBeginnewStatement : SectionBeginStatement
+    public class SectionBeginNewStatement : SectionBeginStatement
     {
         #region SyntaxInfo
 
@@ -2236,7 +2232,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Beginnew;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginNew;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2252,18 +2248,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SectionBeginnewStatement() { }
+        public SectionBeginNewStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SectionBeginnewStatement(double distance) : base(distance) { }
+        public SectionBeginNewStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Section.Setspeedlimit(V);
+    /// Section.SetSpeedLimit(V);
     /// </summary>
-    public partial class SectionSetspeedlimitStatement : Statement
+    public class SectionSetSpeedLimitStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2275,7 +2271,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setspeedlimit;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetSpeedLimit;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2304,12 +2300,12 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SectionSetspeedlimitStatement() { }
+        public SectionSetSpeedLimitStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SectionSetspeedlimitStatement(double distance) : base(distance) { }
+        public SectionSetSpeedLimitStatement(double distance) : base(distance) { }
 
         /// <summary>
         /// 可変長引数：走行速度 [km/h] （null: 許容速度なし）を追加します。
@@ -2346,9 +2342,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Signal.Speedlimit(V);
+    /// Signal.SpeedLimit(V);
     /// </summary>
-    public partial class SignalSpeedlimitStatement : SectionSetspeedlimitStatement
+    public class SignalSpeedLimitStatement : SectionSetSpeedLimitStatement
     {
         #region SyntaxInfo
 
@@ -2360,7 +2356,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Speedlimit;
+        public override MapFunctionName? FunctionName => MapFunctionName.SpeedLimit;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2376,30 +2372,30 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SignalSpeedlimitStatement() { }
+        public SignalSpeedLimitStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SignalSpeedlimitStatement(double distance) : base(distance) { }
+        public SignalSpeedLimitStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Speedlimit.Setsignal(V);
+    /// SpeedLimit.SetSignal(V);
     /// </summary>
-    public partial class SpeedlimitSetsignalStatement : SectionSetspeedlimitStatement
+    public class SpeedLimitSetSignalStatement : SectionSetSpeedLimitStatement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setsignal;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetSignal;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2415,18 +2411,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitSetsignalStatement() { }
+        public SpeedLimitSetSignalStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitSetsignalStatement(double distance) : base(distance) { }
+        public SpeedLimitSetSignalStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Signal.Load(FilePath);
     /// </summary>
-    public partial class SignalLoadStatement : Statement
+    public class SignalLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2474,7 +2470,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Signal[SignalAspectKey].Put(Section, TrackKey, X, Y, Z?, RX?, RY?, RZ?, Tilt?, Span?);
     /// </summary>
-    public partial class SignalPutStatement : Statement
+    public class SignalPutStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2581,7 +2577,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Beacon.Put(Type, Section, Senddata);
     /// </summary>
-    public partial class BeaconPutStatement : Statement
+    public class BeaconPutStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2639,16 +2635,16 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Speedlimit.Begin(V);
+    /// SpeedLimit.Begin(V);
     /// </summary>
-    public partial class SpeedlimitBeginStatement : Statement
+    public class SpeedLimitBeginStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
@@ -2678,25 +2674,25 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitBeginStatement() { }
+        public SpeedLimitBeginStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitBeginStatement(double distance) : base(distance) { }
+        public SpeedLimitBeginStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Speedlimit.End();
+    /// SpeedLimit.End();
     /// </summary>
-    public partial class SpeedlimitEndStatement : Statement
+    public class SpeedLimitEndStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
@@ -2718,18 +2714,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitEndStatement() { }
+        public SpeedLimitEndStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public SpeedlimitEndStatement(double distance) : base(distance) { }
+        public SpeedLimitEndStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Pretrain.Pass(Time?, Second?);
     /// </summary>
-    public partial class PretrainPassStatement : Statement
+    public class PretrainPassStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2783,7 +2779,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Light.Ambient(Red, Green, Blue);
     /// </summary>
-    public partial class LightAmbientStatement : Statement
+    public class LightAmbientStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2843,7 +2839,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Light.Diffuse(Red, Green, Blue);
     /// </summary>
-    public partial class LightDiffuseStatement : Statement
+    public class LightDiffuseStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2903,7 +2899,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Light.Direction(Pitch, Yaw);
     /// </summary>
-    public partial class LightDirectionStatement : Statement
+    public class LightDirectionStatement : Statement
     {
         #region SyntaxInfo
 
@@ -2957,7 +2953,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Fog.Interpolate(Density?, Red?, Green?, Blue?);
     /// </summary>
-    public partial class FogInterpolateStatement : Statement
+    public class FogInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3023,7 +3019,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Fog.Set(Density?, Red?, Green?, Blue?);
     /// </summary>
-    public partial class FogSetStatement : FogInterpolateStatement
+    public class FogSetStatement : FogInterpolateStatement
     {
         #region SyntaxInfo
 
@@ -3060,16 +3056,16 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Drawdistance.Change(Value);
+    /// DrawDistance.Change(Value);
     /// </summary>
-    public partial class DrawdistanceChangeStatement : Statement
+    public class DrawDistanceChangeStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Drawdistance;
+        public override MapElementName ElementName => MapElementName.DrawDistance;
 
         /// <summary>
         /// 関数名
@@ -3099,25 +3095,25 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public DrawdistanceChangeStatement() { }
+        public DrawDistanceChangeStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public DrawdistanceChangeStatement(double distance) : base(distance) { }
+        public DrawDistanceChangeStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Cabilluminance.Interpolate(Value?);
+    /// CabIlluminance.Interpolate(Value?);
     /// </summary>
-    public partial class CabilluminanceInterpolateStatement : Statement
+    public class CabIlluminanceInterpolateStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Cabilluminance;
+        public override MapElementName ElementName => MapElementName.CabIlluminance;
 
         /// <summary>
         /// 関数名
@@ -3147,25 +3143,25 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CabilluminanceInterpolateStatement() { }
+        public CabIlluminanceInterpolateStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CabilluminanceInterpolateStatement(double distance) : base(distance) { }
+        public CabIlluminanceInterpolateStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Cabilluminance.Set(Value);
+    /// CabIlluminance.Set(Value);
     /// </summary>
-    public partial class CabilluminanceSetStatement : CabilluminanceInterpolateStatement
+    public class CabIlluminanceSetStatement : CabIlluminanceInterpolateStatement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Cabilluminance;
+        public override MapElementName ElementName => MapElementName.CabIlluminance;
 
         /// <summary>
         /// 関数名
@@ -3186,18 +3182,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public CabilluminanceSetStatement() { }
+        public CabIlluminanceSetStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public CabilluminanceSetStatement(double distance) : base(distance) { }
+        public CabIlluminanceSetStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Irregularity.Change(X, Y, R, LX, LY, LR);
     /// </summary>
-    public partial class IrregularityChangeStatement : Statement
+    public class IrregularityChangeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3275,7 +3271,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Adhesion.Change(A, B?, C?);
     /// </summary>
-    public partial class AdhesionChangeStatement : Statement
+    public class AdhesionChangeStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3335,7 +3331,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Sound.Load(FilePath);
     /// </summary>
-    public partial class SoundLoadStatement : Statement
+    public class SoundLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3383,7 +3379,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Sound[SoundKey].Play();
     /// </summary>
-    public partial class SoundPlayStatement : Statement
+    public class SoundPlayStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3428,7 +3424,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Sound3d.Load(FilePath);
     /// </summary>
-    public partial class Sound3dLoadStatement : Statement
+    public class Sound3dLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3476,7 +3472,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Sound3d[SoundKey].Put(X, Y);
     /// </summary>
-    public partial class Sound3dPutStatement : Statement
+    public class Sound3dPutStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3533,16 +3529,16 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Rollingnoise.Change(Index);
+    /// RollingNoise.Change(Index);
     /// </summary>
-    public partial class RollingnoiseChangeStatement : Statement
+    public class RollingNoiseChangeStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Rollingnoise;
+        public override MapElementName ElementName => MapElementName.RollingNoise;
 
         /// <summary>
         /// 関数名
@@ -3572,25 +3568,25 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public RollingnoiseChangeStatement() { }
+        public RollingNoiseChangeStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public RollingnoiseChangeStatement(double distance) : base(distance) { }
+        public RollingNoiseChangeStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Flangenoise.Change(Index);
+    /// FlangeNoise.Change(Index);
     /// </summary>
-    public partial class FlangenoiseChangeStatement : Statement
+    public class FlangeNoiseChangeStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Flangenoise;
+        public override MapElementName ElementName => MapElementName.FlangeNoise;
 
         /// <summary>
         /// 関数名
@@ -3620,25 +3616,25 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public FlangenoiseChangeStatement() { }
+        public FlangeNoiseChangeStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public FlangenoiseChangeStatement(double distance) : base(distance) { }
+        public FlangeNoiseChangeStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
-    /// Jointnoise.Play(Index);
+    /// JointNoise.Play(Index);
     /// </summary>
-    public partial class JointnoisePlayStatement : Statement
+    public class JointNoisePlayStatement : Statement
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Jointnoise;
+        public override MapElementName ElementName => MapElementName.JointNoise;
 
         /// <summary>
         /// 関数名
@@ -3668,18 +3664,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public JointnoisePlayStatement() { }
+        public JointNoisePlayStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public JointnoisePlayStatement(double distance) : base(distance) { }
+        public JointNoisePlayStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Train.Add(TrainKey, FilePath, TrackKey?, Direction?);
     /// </summary>
-    public partial class TrainAddStatement : Statement
+    public class TrainAddStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3745,7 +3741,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Train[TrainKey].Load(FilePath, TrackKey, Direction);
     /// </summary>
-    public partial class TrainLoadStatement : Statement
+    public class TrainLoadStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3810,7 +3806,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Train[TrainKey].Enable(Time?, Second?);
     /// </summary>
-    public partial class TrainEnableStatement : Statement
+    public class TrainEnableStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3869,7 +3865,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Train[TrainKey].Stop(Decelerate, StopTime, Accelerate, Speed);
     /// </summary>
-    public partial class TrainStopStatement : Statement
+    public class TrainStopStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3938,9 +3934,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     }
 
     /// <summary>
-    /// Train[TrainKey].Settrack(TrackKey, Direction);
+    /// Train[TrainKey].SetTrack(TrackKey, Direction);
     /// </summary>
-    public partial class TrainSettrackStatement : Statement
+    public class TrainSetTrackStatement : Statement
     {
         #region SyntaxInfo
 
@@ -3952,7 +3948,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Settrack;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetTrack;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -3988,18 +3984,18 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        public TrainSettrackStatement() { }
+        public TrainSetTrackStatement() { }
 
         /// <summary>
         /// 距離程を指定して新しいインスタンスを生成します。
         /// </summary>
-        public TrainSettrackStatement(double distance) : base(distance) { }
+        public TrainSetTrackStatement(double distance) : base(distance) { }
     }
 
     /// <summary>
     /// Legacy.Fog(Fogstart, Fogend, red, green, blue);
     /// </summary>
-    public partial class LegacyFogStatement : Statement
+    public class LegacyFogStatement : Statement
     {
         #region SyntaxInfo
 
@@ -4071,7 +4067,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Legacy.Curve(Radius, Cant);
     /// </summary>
-    public partial class LegacyCurveStatement : Statement
+    public class LegacyCurveStatement : Statement
     {
         #region SyntaxInfo
 
@@ -4125,7 +4121,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Legacy.Pitch(Rate?);
     /// </summary>
-    public partial class LegacyPitchStatement : Statement
+    public class LegacyPitchStatement : Statement
     {
         #region SyntaxInfo
 
@@ -4173,7 +4169,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Legacy.Turn(Slope?);
     /// </summary>
-    public partial class LegacyTurnStatement : Statement
+    public class LegacyTurnStatement : Statement
     {
         #region SyntaxInfo
 
@@ -4221,7 +4217,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
     /// <summary>
     /// Include(FilePath);
     /// </summary>
-    public partial class IncludeStatement : Statement
+    public class IncludeStatement : Statement
     {
         #region SyntaxInfo
 

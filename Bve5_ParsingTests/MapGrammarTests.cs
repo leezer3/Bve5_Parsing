@@ -31,7 +31,7 @@ namespace Bve5_ParsingTests
                     version: "2.02", encoding: "utf-8",
                     syntaxes: new List<Statement>()
                     {
-                        new CurveBegintransitionStatement(0)
+                        new CurveBeginTransitionStatement(0)
                     }));
 
             Check(
@@ -52,7 +52,7 @@ namespace Bve5_ParsingTests
                     version: "2.00", encoding: "utf-8",
                     syntaxes: new List<Statement>()
                     {
-                        new CurveBegintransitionStatement(0)
+                        new CurveBeginTransitionStatement(0)
                     }));
 
             Check(
@@ -73,7 +73,7 @@ namespace Bve5_ParsingTests
                     version: "1.00", encoding: "utf-8",
                     syntaxes: new List<Statement>()
                     {
-                        new CurveBegintransitionStatement(0)
+                        new CurveBeginTransitionStatement(0)
                     }));
         }
 
@@ -94,7 +94,7 @@ BeginTransition
                 new MapData(version: "2.02",
                 syntaxes: new List<Statement>()
                 {
-                    new CurveBegintransitionStatement(0)
+                    new CurveBeginTransitionStatement(0)
                 }));
 
             Check(
@@ -111,7 +111,7 @@ BeginTransition
                 new MapData(version: "2.00",
                 syntaxes: new List<Statement>()
                 {
-                    new CurveBegintransitionStatement(0)
+                    new CurveBeginTransitionStatement(0)
                 }));
 
             Check(
@@ -128,7 +128,7 @@ BeginTransition
                 new MapData(version: "1.00",
                 syntaxes: new List<Statement>()
                 {
-                    new CurveBegintransitionStatement(0)
+                    new CurveBeginTransitionStatement(0)
                 }));
         }
 
@@ -136,7 +136,7 @@ BeginTransition
         public void V2InvalidArgumentTest()
         {
             var parser = new MapGrammarParser();
-            parser.Parse("BveTs Map 2.02\n0;Curve.Setgauge('test');");
+            parser.Parse("BveTs Map 2.02\n0;Curve.SetGauge('test');");
             Assert.Single(parser.ParserErrors); // TODO
         }
 
@@ -442,20 +442,20 @@ BeginTransition
         }
 
         /// <summary>
-        /// Structure[StructureKey].Putbetween(TrackKey1, TrackKey2, Flag?);
+        /// Structure[StructureKey].PutBetween(TrackKey1, TrackKey2, Flag?);
         /// </summary>
         [Fact]
-        public void StructurePutbetweenTest()
+        public void StructurePutBetweenTest()
         {
 
-            // Structure[StructureKey].Putbetween(TrackKey1, TrackKey2);
+            // Structure[StructureKey].PutBetween(TrackKey1, TrackKey2);
             Check(
-                ExecParse("BveTs Map 2.02\n0;Structure['StructureKey'].Putbetween('string_test_value', 'string_test_value');"),
+                ExecParse("BveTs Map 2.02\n0;Structure['StructureKey'].PutBetween('string_test_value', 'string_test_value');"),
                 new MapData(
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new StructurePutbetweenStatement(0)
+                        new StructurePutBetweenStatement(0)
                         {
                             Key = "StructureKey",
                             TrackKey1 = "string_test_value",
@@ -463,14 +463,14 @@ BeginTransition
                         }
                     }));
 
-            // Structure[StructureKey].Putbetween(TrackKey1, TrackKey2, Flag);
+            // Structure[StructureKey].PutBetween(TrackKey1, TrackKey2, Flag);
             Check(
-                ExecParse("BveTs Map 2.02\n0;Structure['StructureKey'].Putbetween('string_test_value', 'string_test_value', 1);"),
+                ExecParse("BveTs Map 2.02\n0;Structure['StructureKey'].PutBetween('string_test_value', 'string_test_value', 1);"),
                 new MapData(
                     version: "2.02",
                     syntaxes: new List<Statement>()
                     {
-                        new StructurePutbetweenStatement(0)
+                        new StructurePutBetweenStatement(0)
                         {
                             Key = "StructureKey",
                             TrackKey1 = "string_test_value",
@@ -479,14 +479,14 @@ BeginTransition
                         }
                     }));
 
-            // Structure[StructureKey].Putbetween(TrackKey1, TrackKey2);
+            // Structure[StructureKey].PutBetween(TrackKey1, TrackKey2);
             Check(
-                ExecParse("BveTs Map 2.00\n0;Structure['StructureKey'].Putbetween('string_test_value', 'string_test_value');"),
+                ExecParse("BveTs Map 2.00\n0;Structure['StructureKey'].PutBetween('string_test_value', 'string_test_value');"),
                 new MapData(
                     version: "2.00",
                     syntaxes: new List<Statement>()
                     {
-                        new StructurePutbetweenStatement(0)
+                        new StructurePutBetweenStatement(0)
                         {
                             Key = "StructureKey",
                             TrackKey1 = "string_test_value",
@@ -494,14 +494,14 @@ BeginTransition
                         }
                     }));
 
-            // Structure[StructureKey].Putbetween(TrackKey1, TrackKey2);
+            // Structure[StructureKey].PutBetween(TrackKey1, TrackKey2);
             Check(
-                ExecParse("BveTs Map 1.00\n0;Structure[StructureKey].Putbetween(string_test_value, string_test_value);"),
+                ExecParse("BveTs Map 1.00\n0;Structure[StructureKey].PutBetween(string_test_value, string_test_value);"),
                 new MapData(
                     version: "1.00",
                     syntaxes: new List<Statement>()
                     {
-                        new StructurePutbetweenStatement(0)
+                        new StructurePutBetweenStatement(0)
                         {
                             Key = "StructureKey",
                             TrackKey1 = "string_test_value",

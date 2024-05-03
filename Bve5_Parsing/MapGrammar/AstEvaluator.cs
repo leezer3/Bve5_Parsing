@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -189,22 +189,22 @@ namespace Bve5_Parsing.MapGrammar
         #endregion
 
         #region 自動生成構文
-        public override object Visit(CurveSetgaugeNode node)
+        public override object Visit(CurveSetGaugeNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CurveSetcenterNode node)
+        public override object Visit(CurveSetCenterNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CurveSetfunctionNode node)
+        public override object Visit(CurveSetFunctionNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CurveBegintransitionNode node)
+        public override object Visit(CurveBeginTransitionNode node)
         {
             return node.CreateStatement(this);
         }
@@ -229,7 +229,7 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(GradientBegintransitionNode node)
+        public override object Visit(GradientBeginTransitionNode node)
         {
             return node.CreateStatement(this);
         }
@@ -264,22 +264,22 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(TrackCantSetgaugeNode node)
+        public override object Visit(TrackCantSetGaugeNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(TrackCantSetcenterNode node)
+        public override object Visit(TrackCantSetCenterNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(TrackCantSetfunctionNode node)
+        public override object Visit(TrackCantSetFunctionNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(TrackCantBegintransitionNode node)
+        public override object Visit(TrackCantBeginTransitionNode node)
         {
             return node.CreateStatement(this);
         }
@@ -309,7 +309,7 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(StructurePutbetweenNode node)
+        public override object Visit(StructurePutBetweenNode node)
         {
             return node.CreateStatement(this);
         }
@@ -344,17 +344,17 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SectionSetspeedlimitNode node)
+        public override object Visit(SectionSetSpeedLimitNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SectionBeginnewNode node)
+        public override object Visit(SectionBeginNewNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SignalSpeedlimitNode node)
+        public override object Visit(SignalSpeedLimitNode node)
         {
             return node.CreateStatement(this);
         }
@@ -369,17 +369,17 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SpeedlimitBeginNode node)
+        public override object Visit(SpeedLimitBeginNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SpeedlimitEndNode node)
+        public override object Visit(SpeedLimitEndNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(SpeedlimitSetsignalNode node)
+        public override object Visit(SpeedLimitSetSignalNode node)
         {
             return node.CreateStatement(this);
         }
@@ -409,12 +409,12 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(DrawdistanceChangeNode node)
+        public override object Visit(DrawDistanceChangeNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CabilluminanceInterpolateNode node)
+        public override object Visit(CabIlluminanceInterpolateNode node)
         {
             return node.CreateStatement(this);
         }
@@ -439,17 +439,17 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(RollingnoiseChangeNode node)
+        public override object Visit(RollingNoiseChangeNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(FlangenoiseChangeNode node)
+        public override object Visit(FlangeNoiseChangeNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(JointnoisePlayNode node)
+        public override object Visit(JointNoisePlayNode node)
         {
             return node.CreateStatement(this);
         }
@@ -474,7 +474,7 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(TrainSettrackNode node)
+        public override object Visit(TrainSetTrackNode node)
         {
             return node.CreateStatement(this);
         }
@@ -495,12 +495,12 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CurveBegincircularNode node)
+        public override object Visit(CurveBeginCircularNode node)
         {
             return node.CreateStatement(this);
         }
 
-        public override object Visit(GradientBeginconstNode node)
+        public override object Visit(GradientBeginConstNode node)
         {
             return node.CreateStatement(this);
         }
@@ -520,7 +520,7 @@ namespace Bve5_Parsing.MapGrammar
             return node.CreateStatement(this);
         }
 
-        public override object Visit(CabilluminanceSetNode node)
+        public override object Visit(CabIlluminanceSetNode node)
         {
             return node.CreateStatement(this);
         }

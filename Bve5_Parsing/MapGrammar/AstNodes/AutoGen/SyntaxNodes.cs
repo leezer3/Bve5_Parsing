@@ -10,9 +10,9 @@ using Bve5_Parsing.MapGrammar.Attributes;
 namespace Bve5_Parsing.MapGrammar.AstNodes {
 
     /// <summary>
-    /// Curve.Setgauge(Value);
+    /// Curve.SetGauge(Value);
     /// </summary>
-    public partial class CurveSetgaugeNode : SyntaxNode
+    public partial class CurveSetGaugeNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -24,7 +24,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setgauge;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetGauge;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -51,14 +51,14 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CurveSetgaugeNode(IToken start, IToken stop) : base(start, stop) { }
+        public CurveSetGaugeNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
     /// Gauge.Set(Value);
     /// </summary>
     [Deprecated]
-    public partial class GaugeSetNode : CurveSetgaugeNode
+    public partial class GaugeSetNode : CurveSetGaugeNode
     {
         #region SyntaxInfo
 
@@ -95,7 +95,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     /// Curve.Gauge(Value);
     /// </summary>
     [Deprecated]
-    public partial class CurveGaugeNode : CurveSetgaugeNode
+    public partial class CurveGaugeNode : CurveSetGaugeNode
     {
         #region SyntaxInfo
 
@@ -129,9 +129,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Curve.Setcenter(X);
+    /// Curve.SetCenter(X);
     /// </summary>
-    public partial class CurveSetcenterNode : SyntaxNode
+    public partial class CurveSetCenterNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -143,7 +143,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setcenter;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetCenter;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -170,13 +170,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CurveSetcenterNode(IToken start, IToken stop) : base(start, stop) { }
+        public CurveSetCenterNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Curve.Setfunction(Id);
+    /// Curve.SetFunction(Id);
     /// </summary>
-    public partial class CurveSetfunctionNode : SyntaxNode
+    public partial class CurveSetFunctionNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -188,7 +188,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setfunction;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetFunction;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -215,13 +215,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CurveSetfunctionNode(IToken start, IToken stop) : base(start, stop) { }
+        public CurveSetFunctionNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Curve.Begintransition();
+    /// Curve.BeginTransition();
     /// </summary>
-    public partial class CurveBegintransitionNode : SyntaxNode
+    public partial class CurveBeginTransitionNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -233,7 +233,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -252,7 +252,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CurveBegintransitionNode(IToken start, IToken stop) : base(start, stop) { }
+        public CurveBeginTransitionNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -307,10 +307,10 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Curve.Begincircular(Radius, Cant?);
+    /// Curve.BeginCircular(Radius, Cant?);
     /// </summary>
     [Deprecated]
-    public partial class CurveBegincircularNode : CurveBeginNode
+    public partial class CurveBeginCircularNode : CurveBeginNode
     {
         #region SyntaxInfo
 
@@ -322,7 +322,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begincircular;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginCircular;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -340,7 +340,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CurveBegincircularNode(IToken start, IToken stop) : base(start, stop) { }
+        public CurveBeginCircularNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -477,9 +477,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Gradient.Begintransition();
+    /// Gradient.BeginTransition();
     /// </summary>
-    public partial class GradientBegintransitionNode : SyntaxNode
+    public partial class GradientBeginTransitionNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -491,7 +491,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -510,7 +510,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public GradientBegintransitionNode(IToken start, IToken stop) : base(start, stop) { }
+        public GradientBeginTransitionNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -559,10 +559,10 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Gradient.Beginconst(Gradient);
+    /// Gradient.BeginConst(Gradient);
     /// </summary>
     [Deprecated]
-    public partial class GradientBeginconstNode : GradientBeginNode
+    public partial class GradientBeginConstNode : GradientBeginNode
     {
         #region SyntaxInfo
 
@@ -574,7 +574,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Beginconst;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginConst;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -592,7 +592,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public GradientBeginconstNode(IToken start, IToken stop) : base(start, stop) { }
+        public GradientBeginConstNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -868,9 +868,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setgauge(Gauge);
+    /// Track[TrackKey].Cant.SetGauge(Gauge);
     /// </summary>
-    public partial class TrackCantSetgaugeNode : SyntaxNode
+    public partial class TrackCantSetGaugeNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -887,7 +887,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setgauge;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetGauge;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -919,14 +919,14 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public TrackCantSetgaugeNode(IToken start, IToken stop) : base(start, stop) { }
+        public TrackCantSetGaugeNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
     /// Track[TrackKey].Gauge(Gauge);
     /// </summary>
     [Deprecated]
-    public partial class TrackGaugeNode : TrackCantSetgaugeNode
+    public partial class TrackGaugeNode : TrackCantSetGaugeNode
     {
         #region SyntaxInfo
 
@@ -960,9 +960,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setcenter(X);
+    /// Track[TrackKey].Cant.SetCenter(X);
     /// </summary>
-    public partial class TrackCantSetcenterNode : SyntaxNode
+    public partial class TrackCantSetCenterNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -979,7 +979,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setcenter;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetCenter;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1011,13 +1011,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public TrackCantSetcenterNode(IToken start, IToken stop) : base(start, stop) { }
+        public TrackCantSetCenterNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Setfunction(Id);
+    /// Track[TrackKey].Cant.SetFunction(Id);
     /// </summary>
-    public partial class TrackCantSetfunctionNode : SyntaxNode
+    public partial class TrackCantSetFunctionNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -1034,7 +1034,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setfunction;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetFunction;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1066,13 +1066,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public TrackCantSetfunctionNode(IToken start, IToken stop) : base(start, stop) { }
+        public TrackCantSetFunctionNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Track[TrackKey].Cant.Begintransition();
+    /// Track[TrackKey].Cant.BeginTransition();
     /// </summary>
-    public partial class TrackCantBegintransitionNode : SyntaxNode
+    public partial class TrackCantBeginTransitionNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -1089,7 +1089,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Begintransition;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginTransition;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1113,7 +1113,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public TrackCantBegintransitionNode(IToken start, IToken stop) : base(start, stop) { }
+        public TrackCantBeginTransitionNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -1516,9 +1516,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Structure[StructureKey].Putbetween(TrackKey1, TrackKey2, Flag?);
+    /// Structure[StructureKey].PutBetween(TrackKey1, TrackKey2, Flag?);
     /// </summary>
-    public partial class StructurePutbetweenNode : SyntaxNode
+    public partial class StructurePutBetweenNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -1530,7 +1530,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Putbetween;
+        public override MapFunctionName? FunctionName => MapFunctionName.PutBetween;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -1574,7 +1574,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public StructurePutbetweenNode(IToken start, IToken stop) : base(start, stop) { }
+        public StructurePutBetweenNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -2061,10 +2061,10 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Section.Beginnew(Signal);
+    /// Section.BeginNew(Signal);
     /// </summary>
     [Deprecated]
-    public partial class SectionBeginnewNode : SectionBeginNode
+    public partial class SectionBeginNewNode : SectionBeginNode
     {
         #region SyntaxInfo
 
@@ -2076,7 +2076,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Beginnew;
+        public override MapFunctionName? FunctionName => MapFunctionName.BeginNew;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2094,13 +2094,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SectionBeginnewNode(IToken start, IToken stop) : base(start, stop) { }
+        public SectionBeginNewNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Section.Setspeedlimit(V);
+    /// Section.SetSpeedLimit(V);
     /// </summary>
-    public partial class SectionSetspeedlimitNode : SyntaxNode
+    public partial class SectionSetSpeedLimitNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -2112,7 +2112,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setspeedlimit;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetSpeedLimit;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2143,7 +2143,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SectionSetspeedlimitNode(IToken start, IToken stop) : base(start, stop) { }
+        public SectionSetSpeedLimitNode(IToken start, IToken stop) : base(start, stop) { }
 
         /// <summary>
         /// 可変長引数：走行速度 [km/h] （null: 許容速度なし）を追加します。
@@ -2163,10 +2163,10 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Signal.Speedlimit(V);
+    /// Signal.SpeedLimit(V);
     /// </summary>
     [Deprecated]
-    public partial class SignalSpeedlimitNode : SectionSetspeedlimitNode
+    public partial class SignalSpeedLimitNode : SectionSetSpeedLimitNode
     {
         #region SyntaxInfo
 
@@ -2178,7 +2178,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Speedlimit;
+        public override MapFunctionName? FunctionName => MapFunctionName.SpeedLimit;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2196,26 +2196,26 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SignalSpeedlimitNode(IToken start, IToken stop) : base(start, stop) { }
+        public SignalSpeedLimitNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Speedlimit.Setsignal(V);
+    /// SpeedLimit.SetSignal(V);
     /// </summary>
     [Deprecated]
-    public partial class SpeedlimitSetsignalNode : SectionSetspeedlimitNode
+    public partial class SpeedLimitSetSignalNode : SectionSetSpeedLimitNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Setsignal;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetSignal;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -2233,7 +2233,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SpeedlimitSetsignalNode(IToken start, IToken stop) : base(start, stop) { }
+        public SpeedLimitSetSignalNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -2443,16 +2443,16 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Speedlimit.Begin(V);
+    /// SpeedLimit.Begin(V);
     /// </summary>
-    public partial class SpeedlimitBeginNode : SyntaxNode
+    public partial class SpeedLimitBeginNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
@@ -2484,20 +2484,20 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SpeedlimitBeginNode(IToken start, IToken stop) : base(start, stop) { }
+        public SpeedLimitBeginNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Speedlimit.End();
+    /// SpeedLimit.End();
     /// </summary>
-    public partial class SpeedlimitEndNode : SyntaxNode
+    public partial class SpeedLimitEndNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Speedlimit;
+        public override MapElementName ElementName => MapElementName.SpeedLimit;
 
         /// <summary>
         /// 関数名
@@ -2521,7 +2521,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public SpeedlimitEndNode(IToken start, IToken stop) : base(start, stop) { }
+        public SpeedLimitEndNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -2841,16 +2841,16 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Drawdistance.Change(Value);
+    /// DrawDistance.Change(Value);
     /// </summary>
-    public partial class DrawdistanceChangeNode : SyntaxNode
+    public partial class DrawDistanceChangeNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Drawdistance;
+        public override MapElementName ElementName => MapElementName.DrawDistance;
 
         /// <summary>
         /// 関数名
@@ -2882,20 +2882,20 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public DrawdistanceChangeNode(IToken start, IToken stop) : base(start, stop) { }
+        public DrawDistanceChangeNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Cabilluminance.Interpolate(Value?);
+    /// CabIlluminance.Interpolate(Value?);
     /// </summary>
-    public partial class CabilluminanceInterpolateNode : SyntaxNode
+    public partial class CabIlluminanceInterpolateNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Cabilluminance;
+        public override MapElementName ElementName => MapElementName.CabIlluminance;
 
         /// <summary>
         /// 関数名
@@ -2927,21 +2927,21 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CabilluminanceInterpolateNode(IToken start, IToken stop) : base(start, stop) { }
+        public CabIlluminanceInterpolateNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Cabilluminance.Set(Value);
+    /// CabIlluminance.Set(Value);
     /// </summary>
     [Deprecated]
-    public partial class CabilluminanceSetNode : CabilluminanceInterpolateNode
+    public partial class CabIlluminanceSetNode : CabIlluminanceInterpolateNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Cabilluminance;
+        public override MapElementName ElementName => MapElementName.CabIlluminance;
 
         /// <summary>
         /// 関数名
@@ -2964,7 +2964,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public CabilluminanceSetNode(IToken start, IToken stop) : base(start, stop) { }
+        public CabIlluminanceSetNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -3288,16 +3288,16 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Rollingnoise.Change(Index);
+    /// RollingNoise.Change(Index);
     /// </summary>
-    public partial class RollingnoiseChangeNode : SyntaxNode
+    public partial class RollingNoiseChangeNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Rollingnoise;
+        public override MapElementName ElementName => MapElementName.RollingNoise;
 
         /// <summary>
         /// 関数名
@@ -3329,20 +3329,20 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public RollingnoiseChangeNode(IToken start, IToken stop) : base(start, stop) { }
+        public RollingNoiseChangeNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Flangenoise.Change(Index);
+    /// FlangeNoise.Change(Index);
     /// </summary>
-    public partial class FlangenoiseChangeNode : SyntaxNode
+    public partial class FlangeNoiseChangeNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Flangenoise;
+        public override MapElementName ElementName => MapElementName.FlangeNoise;
 
         /// <summary>
         /// 関数名
@@ -3374,20 +3374,20 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public FlangenoiseChangeNode(IToken start, IToken stop) : base(start, stop) { }
+        public FlangeNoiseChangeNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
-    /// Jointnoise.Play(Index);
+    /// JointNoise.Play(Index);
     /// </summary>
-    public partial class JointnoisePlayNode : SyntaxNode
+    public partial class JointNoisePlayNode : SyntaxNode
     {
         #region SyntaxInfo
 
         /// <summary>
         /// マップ要素名
         /// </summary>
-        public override MapElementName ElementName => MapElementName.Jointnoise;
+        public override MapElementName ElementName => MapElementName.JointNoise;
 
         /// <summary>
         /// 関数名
@@ -3419,7 +3419,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public JointnoisePlayNode(IToken start, IToken stop) : base(start, stop) { }
+        public JointNoisePlayNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>
@@ -3672,9 +3672,9 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
     }
 
     /// <summary>
-    /// Train[TrainKey].Settrack(TrackKey, Direction);
+    /// Train[TrainKey].SetTrack(TrackKey, Direction);
     /// </summary>
-    public partial class TrainSettrackNode : SyntaxNode
+    public partial class TrainSetTrackNode : SyntaxNode
     {
         #region SyntaxInfo
 
@@ -3686,7 +3686,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// <summary>
         /// 関数名
         /// </summary>
-        public override MapFunctionName? FunctionName => MapFunctionName.Settrack;
+        public override MapFunctionName? FunctionName => MapFunctionName.SetTrack;
 
         /// <summary>
         /// キーを指定する構文か？
@@ -3724,7 +3724,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// </summary>
         /// <param name="start"></param>
         /// <param name="stop"></param>
-        public TrainSettrackNode(IToken start, IToken stop) : base(start, stop) { }
+        public TrainSetTrackNode(IToken start, IToken stop) : base(start, stop) { }
     }
 
     /// <summary>

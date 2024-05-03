@@ -135,11 +135,11 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
     /// Section.Setspeedlimitの手動対応
     /// 可変長の速度制限へ対応する
     /// </summary>
-    public partial class SectionSetspeedlimitNode
+    public partial class SectionSetSpeedLimitNode
     {
         protected override Statement SetArgument(EvaluateMapGrammarVisitor evaluator, Statement statement)
         {
-            SectionSetspeedlimitStatement sectionSetspeedlimitStatement = base.SetArgument(evaluator, statement) as SectionSetspeedlimitStatement;
+            SectionSetSpeedLimitStatement sectionSetSpeedLimitStatement = base.SetArgument(evaluator, statement) as SectionSetSpeedLimitStatement;
 
             foreach (var spdLmt in Vs)
             {
@@ -148,21 +148,21 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
                     object value = evaluator.Visit(spdLmt);
                     try
                     {
-                        sectionSetspeedlimitStatement.AddV(Convert.ToDouble(value));
+                        sectionSetSpeedLimitStatement.AddV(Convert.ToDouble(value));
                     }
                     catch (Exception e) when (e is InvalidCastException || e is FormatException || e is OverflowException)
                     {
                         evaluator.ErrorListener.AddNewError(ParseMessageType.InvalidArgument, null, Start, value);
-                        sectionSetspeedlimitStatement.AddV(null);
+                        sectionSetSpeedLimitStatement.AddV(null);
                     }
                 }
                 else
                 {
-                    sectionSetspeedlimitStatement.AddV(null);
+                    sectionSetSpeedLimitStatement.AddV(null);
                 }
             }
 
-            return sectionSetspeedlimitStatement;
+            return sectionSetSpeedLimitStatement;
         }
     }
 

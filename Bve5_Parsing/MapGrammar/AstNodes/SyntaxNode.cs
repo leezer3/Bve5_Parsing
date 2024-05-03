@@ -125,14 +125,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
                 throw new ArgumentOutOfRangeException("関数名が短すぎます。");
 
             // ASTのインスタンス取得
-            var astClassName = elementName.GetStringValue() + char.ToUpper(funcName[0]) + funcName.Substring(1).ToLower() + "Node";
+            var astClassName = elementName.GetStringValue() + char.ToUpper(funcName[0]) + funcName.Substring(1) + "Node";
 
             if (element2Name != null)
             {
-                var ele2 = element2Name.Length <= 1 ? element2Name.ToUpper() : char.ToUpper(element2Name[0]) + element2Name.Substring(1).ToLower();
-                astClassName = elementName.GetStringValue() + ele2 + char.ToUpper(funcName[0]) + funcName.Substring(1).ToLower() + "Node";
+                astClassName = elementName.GetStringValue() + element2Name + funcName + "Node";
             }
-            var astClassType = Type.GetType(typeof(MapGrammarAstNodes).Namespace + "." + astClassName);
+            var astClassType = Type.GetType(typeof(MapGrammarAstNodes).Namespace + "." + astClassName, false, true); // case invariant!
 
             if (astClassType == null)
                 throw new NotSupportedException("対応するAstNodeの取得に失敗しました。");
@@ -246,7 +245,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
         public Statement CreateStatement(EvaluateMapGrammarVisitor evaluator)
         {
             var typeName = $"{typeof(Statement).Namespace}.{GetType().Name.Replace("Node", "")}Statement";
-            var type = Type.GetType(typeName);
+            var type = Type.GetType(typeName, false, true); // case invariant!
             var statement = Activator.CreateInstance(type) as Statement;
             statement.Distance = evaluator.NowDistance;
 

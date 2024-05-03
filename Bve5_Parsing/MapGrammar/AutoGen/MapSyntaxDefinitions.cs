@@ -1,4 +1,4 @@
-/*
+﻿/*
  * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
  * 編集は行わないでください。
  */
@@ -72,10 +72,10 @@ namespace Bve5_Parsing.MapGrammar {
         Signal,
 
         /// <summary>
-        /// Speedlimit
+        /// SpeedLimit
         /// </summary>
-        [StringValue("Speedlimit")]
-        Speedlimit,
+        [StringValue("SpeedLimit")]
+        SpeedLimit,
 
         /// <summary>
         /// Beacon
@@ -102,16 +102,16 @@ namespace Bve5_Parsing.MapGrammar {
         Fog,
 
         /// <summary>
-        /// Drawdistance
+        /// DrawDistance
         /// </summary>
-        [StringValue("Drawdistance")]
-        Drawdistance,
+        [StringValue("DrawDistance")]
+        DrawDistance,
 
         /// <summary>
-        /// Cabilluminance
+        /// CabIlluminance
         /// </summary>
-        [StringValue("Cabilluminance")]
-        Cabilluminance,
+        [StringValue("CabIlluminance")]
+        CabIlluminance,
 
         /// <summary>
         /// Irregularity
@@ -138,22 +138,22 @@ namespace Bve5_Parsing.MapGrammar {
         Sound3d,
 
         /// <summary>
-        /// Rollingnoise
+        /// RollingNoise
         /// </summary>
-        [StringValue("Rollingnoise")]
-        Rollingnoise,
+        [StringValue("RollingNoise")]
+        RollingNoise,
 
         /// <summary>
-        /// Flangenoise
+        /// FlangeNoise
         /// </summary>
-        [StringValue("Flangenoise")]
-        Flangenoise,
+        [StringValue("FlangeNoise")]
+        FlangeNoise,
 
         /// <summary>
-        /// Jointnoise
+        /// JointNoise
         /// </summary>
-        [StringValue("Jointnoise")]
-        Jointnoise,
+        [StringValue("JointNoise")]
+        JointNoise,
 
         /// <summary>
         /// Train
@@ -204,10 +204,10 @@ namespace Bve5_Parsing.MapGrammar {
     public enum MapFunctionName {
 
         /// <summary>
-        /// Setgauge
+        /// SetGauge
         /// </summary>
-        [StringValue("Setgauge")]
-        Setgauge,
+        [StringValue("SetGauge")]
+        SetGauge,
 
         /// <summary>
         /// Set
@@ -222,22 +222,22 @@ namespace Bve5_Parsing.MapGrammar {
         Gauge,
 
         /// <summary>
-        /// Setcenter
+        /// SetCenter
         /// </summary>
-        [StringValue("Setcenter")]
-        Setcenter,
+        [StringValue("SetCenter")]
+        SetCenter,
 
         /// <summary>
-        /// Setfunction
+        /// SetFunction
         /// </summary>
-        [StringValue("Setfunction")]
-        Setfunction,
+        [StringValue("SetFunction")]
+        SetFunction,
 
         /// <summary>
-        /// Begintransition
+        /// BeginTransition
         /// </summary>
-        [StringValue("Begintransition")]
-        Begintransition,
+        [StringValue("BeginTransition")]
+        BeginTransition,
 
         /// <summary>
         /// Begin
@@ -246,10 +246,10 @@ namespace Bve5_Parsing.MapGrammar {
         Begin,
 
         /// <summary>
-        /// Begincircular
+        /// BeginCircular
         /// </summary>
-        [StringValue("Begincircular")]
-        Begincircular,
+        [StringValue("BeginCircular")]
+        BeginCircular,
 
         /// <summary>
         /// End
@@ -270,10 +270,10 @@ namespace Bve5_Parsing.MapGrammar {
         Change,
 
         /// <summary>
-        /// Beginconst
+        /// BeginConst
         /// </summary>
-        [StringValue("Beginconst")]
-        Beginconst,
+        [StringValue("BeginConst")]
+        BeginConst,
 
         /// <summary>
         /// Position
@@ -306,10 +306,10 @@ namespace Bve5_Parsing.MapGrammar {
         Put0,
 
         /// <summary>
-        /// Putbetween
+        /// PutBetween
         /// </summary>
-        [StringValue("Putbetween")]
-        Putbetween,
+        [StringValue("PutBetween")]
+        PutBetween,
 
         /// <summary>
         /// Begin0
@@ -318,28 +318,28 @@ namespace Bve5_Parsing.MapGrammar {
         Begin0,
 
         /// <summary>
-        /// Beginnew
+        /// BeginNew
         /// </summary>
-        [StringValue("Beginnew")]
-        Beginnew,
+        [StringValue("BeginNew")]
+        BeginNew,
 
         /// <summary>
-        /// Setspeedlimit
+        /// SetSpeedLimit
         /// </summary>
-        [StringValue("Setspeedlimit")]
-        Setspeedlimit,
+        [StringValue("SetSpeedLimit")]
+        SetSpeedLimit,
 
         /// <summary>
-        /// Speedlimit
+        /// SpeedLimit
         /// </summary>
-        [StringValue("Speedlimit")]
-        Speedlimit,
+        [StringValue("SpeedLimit")]
+        SpeedLimit,
 
         /// <summary>
-        /// Setsignal
+        /// SetSignal
         /// </summary>
-        [StringValue("Setsignal")]
-        Setsignal,
+        [StringValue("SetSignal")]
+        SetSignal,
 
         /// <summary>
         /// Pass
@@ -390,10 +390,10 @@ namespace Bve5_Parsing.MapGrammar {
         Stop,
 
         /// <summary>
-        /// Settrack
+        /// SetTrack
         /// </summary>
-        [StringValue("Settrack")]
-        Settrack,
+        [StringValue("SetTrack")]
+        SetTrack,
 
         /// <summary>
         /// Fog

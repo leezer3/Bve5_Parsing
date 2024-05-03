@@ -45,7 +45,7 @@ namespace Bve5_ParsingTests
             Assert.NotNull(data);
             Assert.Equal("1.00", data.Version);
             Assert.Single(data.Statements);
-            Assert.Equal(MapFunctionName.Begincircular, data.Statements[0].FunctionName);
+            Assert.Equal(MapFunctionName.BeginCircular, data.Statements[0].FunctionName);
 
             // Option.ParseAsVersion2
             data = parser.Parse(input, MapGrammarParserOption.ParseAsMapVersion2);
@@ -71,7 +71,7 @@ namespace Bve5_ParsingTests
             Assert.NotNull(data);
             Assert.Equal("1.00", data.Version);
             Assert.Single(data.Statements);
-            Assert.Equal(MapFunctionName.Begincircular, data.Statements[0].FunctionName);
+            Assert.Equal(MapFunctionName.BeginCircular, data.Statements[0].FunctionName);
 
             // Option.ClearVariable
             parser.Store.SetVar("test", 100);

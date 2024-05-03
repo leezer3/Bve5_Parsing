@@ -667,7 +667,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         {
             var node = SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Section, context.func.Text);
 
-            if (node.FunctionName == MapFunctionName.Begin || node.FunctionName == MapFunctionName.Beginnew)
+            if (node.FunctionName == MapFunctionName.Begin || node.FunctionName == MapFunctionName.BeginNew)
             {
                 //Section.BeginとSection.Beginnewは手動対応
                 var beginNode = node as SectionBeginNode;
@@ -678,10 +678,10 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
                 }
                 return beginNode;
             }
-            else if (node.FunctionName == MapFunctionName.Setspeedlimit)
+            else if (node.FunctionName == MapFunctionName.SetSpeedLimit)
             {
                 //Section.Setspeedlimitは手動対応
-                var speedlimitNode = node as SectionSetspeedlimitNode;
+                var speedlimitNode = node as SectionSetSpeedLimitNode;
                 speedlimitNode.AddV(Visit(context.arg()));
                 foreach (var spdLmt in context.args())
                 {
@@ -702,10 +702,10 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         {
             var node = SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Signal, context.func.Text);
 
-            if (node.FunctionName == MapFunctionName.Speedlimit)
+            if (node.FunctionName == MapFunctionName.SpeedLimit)
             {
                 //Signal.Speedlimitは手動対応
-                var speedlimitNode = node as SignalSpeedlimitNode;
+                var speedlimitNode = node as SignalSpeedLimitNode;
                 speedlimitNode.AddV(Visit(context.arg()[0]));
                 foreach (var spdLmt in context.args())
                 {
@@ -734,12 +734,12 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         /// <returns>構文ASTノード</returns>
         public override MapGrammarAstNodes VisitSpeedlimit([NotNull] SpeedlimitContext context)
         {
-            var node = SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Speedlimit, context.func.Text);
+            var node = SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.SpeedLimit, context.func.Text);
 
-            if (node.FunctionName == MapFunctionName.Setsignal)
+            if (node.FunctionName == MapFunctionName.SetSignal)
             {
-                //Speedlimit.Setsignalは手動対応
-                var setSignalNode = node as SpeedlimitSetsignalNode;
+                //SpeedLimit.Setsignalは手動対応
+                var setSignalNode = node as SpeedLimitSetSignalNode;
                 setSignalNode.AddV(Visit(context.arg()));
                 foreach (var spdLmt in context.args())
                 {
@@ -793,7 +793,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         /// <returns>構文ASTノード</returns>
         public override MapGrammarAstNodes VisitCabilluminance([NotNull] CabilluminanceContext context)
         {
-            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Cabilluminance, context.func.Text);
+            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.CabIlluminance, context.func.Text);
         }
 
         /// <summary>
@@ -843,7 +843,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         /// <returns>構文ASTノード</returns>
         public override MapGrammarAstNodes VisitRollingnoise([NotNull] RollingnoiseContext context)
         {
-            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Rollingnoise, context.func.Text);
+            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.RollingNoise, context.func.Text);
         }
 
         /// <summary>
@@ -853,7 +853,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         /// <returns>構文ASTノード</returns>
         public override MapGrammarAstNodes VisitFlangenoise([NotNull] FlangenoiseContext context)
         {
-            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Flangenoise, context.func.Text);
+            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.FlangeNoise, context.func.Text);
         }
 
         /// <summary>
@@ -863,7 +863,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         /// <returns>構文ASTノード</returns>
         public override MapGrammarAstNodes VisitJointnoise([NotNull] JointnoiseContext context)
         {
-            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.Jointnoise, context.func.Text);
+            return SyntaxNode.CreateSyntaxAstNode(this, context, MapElementName.JointNoise, context.func.Text);
         }
 
         /// <summary>

@@ -95,10 +95,10 @@ namespace Bve5_ParsingTests
                     }
                 }
 
-                if (exp is SectionBeginnewStatement)
+                if (exp is SectionBeginNewStatement)
                 {
-                    var expCast = (SectionBeginnewStatement)exp;
-                    var actCast = (SectionBeginnewStatement)act;
+                    var expCast = (SectionBeginNewStatement)exp;
+                    var actCast = (SectionBeginNewStatement)act;
                     Assert.Equal(expCast.SignalAspects.Count, actCast.SignalAspects.Count);
 
                     for (int j = 0; j < expCast.SignalAspects.Count; j++)
@@ -107,10 +107,10 @@ namespace Bve5_ParsingTests
                     }
                 }
 
-                if (exp is SectionSetspeedlimitStatement)
+                if (exp is SectionSetSpeedLimitStatement)
                 {
-                    var expCast = (SectionSetspeedlimitStatement)exp;
-                    var actCast = (SectionSetspeedlimitStatement)act;
+                    var expCast = (SectionSetSpeedLimitStatement)exp;
+                    var actCast = (SectionSetSpeedLimitStatement)act;
                     Assert.Equal(expCast.SpeedLimits.Count, actCast.SpeedLimits.Count);
 
                     for (int j = 0; j < expCast.SpeedLimits.Count; j++)
@@ -119,10 +119,10 @@ namespace Bve5_ParsingTests
                     }
                 }
 
-                if (exp is SignalSpeedlimitStatement)
+                if (exp is SignalSpeedLimitStatement)
                 {
-                    var expCast = (SignalSpeedlimitStatement)exp;
-                    var actCast = (SignalSpeedlimitStatement)act;
+                    var expCast = (SignalSpeedLimitStatement)exp;
+                    var actCast = (SignalSpeedLimitStatement)act;
                     Assert.Equal(expCast.SpeedLimits.Count, actCast.SpeedLimits.Count);
 
                     for (int j = 0; j < expCast.SpeedLimits.Count; j++)
