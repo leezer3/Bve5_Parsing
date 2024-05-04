@@ -433,6 +433,7 @@ namespace Bve5_Parsing.MapGrammar {
         // Object position
         X,
         Y,
+        Z,
         Pitch,
         Yaw,
         RX,
@@ -444,6 +445,7 @@ namespace Bve5_Parsing.MapGrammar {
         Tilt,
         Span,
         Interval,
+        Index,
         // track
         Cant,
         Radius,
@@ -454,6 +456,8 @@ namespace Bve5_Parsing.MapGrammar {
         A,
         // Fog
         Density,
+        Start,
+        End,
         // TFO
         TrainKey,
         TrainFilePath,
