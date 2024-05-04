@@ -1,4 +1,4 @@
-using Bve5_Parsing.MapGrammar.Attributes;
+﻿using Bve5_Parsing.MapGrammar.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -69,9 +69,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <param name="includeNullArgument">値がNullの引数を保持していると判定するかどうか</param>
         /// <returns></returns>
-        public bool HasArgument(string name, bool isIgnoreCase = false, bool includeNullArgument = false)
+        public bool HasArgument(ArgumentName name, bool isIgnoreCase = false, bool includeNullArgument = false)
         {
-            var property = GetArgumentProperty(name, isIgnoreCase);
+            var property = GetArgumentProperty(name);
             if (property == null) return false;
             if (!includeNullArgument) return property.GetValue(this, null) != null;
 
@@ -83,11 +83,10 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 引数名が存在しない場合はnullを返します。
         /// </summary>
         /// <param name="name">引数名</param>
-        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
-        public object GetArgumentValue(string name, bool isIgnoreCase = false)
+        public object GetArgumentValue(ArgumentName name)
         {
-            return GetArgumentProperty(name, isIgnoreCase, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)?
+            return GetArgumentProperty(name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)?
                 .GetValue(this, null);
         }
 
@@ -96,11 +95,10 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 引数名が存在しない場合は0を返します。
         /// </summary>
         /// <param name="name">引数名</param>
-        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
-        public int GetArgumentValueAsInt(string name, bool isIgnoreCase = false)
+        public int GetArgumentValueAsInt(ArgumentName name)
         {
-            string str = GetArgumentValue(name, isIgnoreCase)?.ToString();
+            string str = GetArgumentValue(name)?.ToString();
             if (string.IsNullOrEmpty(str))
             {
                 return 0;
@@ -115,9 +113,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <param name="name">引数名</param>
         /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
-        public double GetArgumentValueAsDouble(string name, bool isIgnoreCase = false)
+        public double GetArgumentValueAsDouble(ArgumentName name, bool isIgnoreCase = false)
         {
-            string str = GetArgumentValue(name, isIgnoreCase)?.ToString();
+            string str = GetArgumentValue(name)?.ToString();
             if (string.IsNullOrEmpty(str))
             {
                 return 0;
@@ -131,11 +129,10 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 引数値はdouble?とstringで保持しているが、どうせobject型で返すなら全てstringでいいのでは、ということで値をstringで返すバージョン。
         /// </summary>
         /// <param name="name">引数名</param>
-        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
-        public string GetArgumentValueAsString(string name, bool isIgnoreCase = false)
+        public string GetArgumentValueAsString(ArgumentName name)
         {
-            return GetArgumentValue(name, isIgnoreCase)?.ToString();
+            return GetArgumentValue(name)?.ToString();
         }
 
         /// <summary>
@@ -191,12 +188,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 引数の属性を取得します。
         /// </summary>
         /// <param name="name">引数名</param>
-        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <returns></returns>
-        protected internal PropertyInfo GetArgumentProperty(string name, bool isIgnoreCase = false, BindingFlags flags = BindingFlags.Default)
+        protected internal PropertyInfo GetArgumentProperty(ArgumentName name, BindingFlags flags = BindingFlags.Default)
         {
             return GetArgumentProperties(flags)
-                .FirstOrDefault(p => isIgnoreCase ? p.Name.ToLower() == name.ToLower() : p.Name == name);
+                .FirstOrDefault(p => p.Name == name.ToString());
         }
 
         /// <summary>
