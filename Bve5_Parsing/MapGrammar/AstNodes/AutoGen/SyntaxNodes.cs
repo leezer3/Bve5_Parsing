@@ -3832,13 +3832,13 @@ namespace Bve5_Parsing.MapGrammar.AstNodes {
         /// 引数：曲線半径 [m] (正: 右曲線, 負: 左曲線)
         /// </summary>
         [Argument]
-        public MapGrammarAstNodes radius { get; set; }
+        public MapGrammarAstNodes Radius { get; set; }
 
         /// <summary>
         /// 引数：カント [m]
         /// </summary>
         [Argument]
-        public MapGrammarAstNodes cant { get; set; }
+        public MapGrammarAstNodes Cant { get; set; }
         #endregion Args
 
         /// <summary>
