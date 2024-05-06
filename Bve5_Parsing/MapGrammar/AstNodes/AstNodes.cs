@@ -148,7 +148,21 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
                     object value = evaluator.Visit(spdLmt);
                     try
                     {
-                        sectionSetSpeedLimitStatement.AddV(Convert.ToDouble(value));
+                        if(!string.IsNullOrEmpty(Convert.ToString(value)))
+                        {
+                            sectionSetSpeedLimitStatement.AddV(Convert.ToDouble(value));
+                        }
+                        else
+                        {
+                            /*
+                             * N.B. An empty string should parse to zero
+                             * -----------------------------------------
+                             * Maps converted with an *old* version of the BVETS map convertor (format 0.07)
+                             * contain a large number (~250; presumably it uses an array length of 256) of empty parameters in this string
+                             * and without this we get useless errors
+                             */
+                            sectionSetSpeedLimitStatement.AddV(null);
+                        }
                     }
                     catch (Exception e) when (e is InvalidCastException || e is FormatException || e is OverflowException)
                     {

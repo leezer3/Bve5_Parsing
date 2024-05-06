@@ -84,7 +84,7 @@
         // ReSharper restore UnusedMember.Global
         public virtual string FilePath => "（ファイルパス：{0}）";
 
-        public virtual string GetMassage(ParseMessageType type, string filePath, params object[] args)
+        public virtual string GetMessage(ParseMessageType type, string filePath, params object[] args)
         {
             // ReSharper disable once PossibleNullReferenceException
             string msg = string.Format((string)GetType().GetProperty(type.ToString()).GetValue(this), args);

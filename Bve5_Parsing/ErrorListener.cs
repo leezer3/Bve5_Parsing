@@ -55,22 +55,22 @@ namespace Bve5_Parsing
         #region エラーメッセージ生成
         protected string GetErrorMessage(IRecognizer recognizer, IToken token, InputMismatchException e)
         {
-            return MessageGenerator.GetMassage(ParseMessageType.InputMismatch, null, GetTokenDisplayName(token), e.GetExpectedTokens().ToString(recognizer.Vocabulary));
+            return MessageGenerator.GetMessage(ParseMessageType.InputMismatch, null, GetTokenDisplayName(token), e.GetExpectedTokens().ToString(recognizer.Vocabulary));
         }
 
         protected string GetErrorMessage(IRecognizer recognizer, IToken token, NoViableAltException e)
         {
-            return MessageGenerator.GetMassage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
+            return MessageGenerator.GetMessage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
         }
 
         protected string GetErrorMessage(IRecognizer recognizer, IToken token, LexerNoViableAltException e)
         {
-            return MessageGenerator.GetMassage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
+            return MessageGenerator.GetMessage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
         }
 
         protected string GetErrorMessage(IRecognizer recognizer, IToken token, FailedPredicateException e)
         {
-            return MessageGenerator.GetMassage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
+            return MessageGenerator.GetMessage(ParseMessageType.NoViable, null, GetTokenDisplayName(token));
         }
         #endregion
 
@@ -95,7 +95,7 @@ namespace Bve5_Parsing
 
         public void AddNewWarning(ParseMessageType messageType, string filePath, int startLine, int startColumn, params object[] args)
         {
-            Errors.Add(new ParseError(ParseErrorLevel.Warning, startLine, startColumn, MessageGenerator.GetMassage(messageType, filePath, args)));
+            Errors.Add(new ParseError(ParseErrorLevel.Warning, startLine, startColumn, MessageGenerator.GetMessage(messageType, filePath, args)));
         }
 
         public void AddNewWarning(ParseMessageType messageType, string filePath, IToken start, params object[] args)
@@ -105,7 +105,7 @@ namespace Bve5_Parsing
 
         public void AddNewError(ParseMessageType messageType, string filePath, int startLine, int startColumn, params object[] args)
         {
-            Errors.Add(new ParseError(ParseErrorLevel.Error, startLine, startColumn, MessageGenerator.GetMassage(messageType, filePath, args)));
+            Errors.Add(new ParseError(ParseErrorLevel.Error, startLine, startColumn, MessageGenerator.GetMessage(messageType, filePath, args)));
         }
 
         public void AddNewError(ParseMessageType messageType, string filePath, IToken start, params object[] args)
