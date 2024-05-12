@@ -569,7 +569,7 @@ namespace Bve5_Parsing.MapGrammar
         {
             var left = Visit(node.Left);
             var right = Visit(node.Right);
-            if (left.GetType() == typeof(string) || right.GetType() == typeof(string))
+            if (left is string || right is string)
                 return left.ToString() + right.ToString(); //文字列の結合
 
             return Convert.ToDouble(left) + Convert.ToDouble(right);
@@ -587,7 +587,7 @@ namespace Bve5_Parsing.MapGrammar
             var right = Visit(node.Right);
             if (left == null || right == null)
                 return null;
-            if (left.GetType() == typeof(string) || right.GetType() == typeof(string))
+            if (left is string || right is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"{left} - {right}");
                 return null;
@@ -607,7 +607,7 @@ namespace Bve5_Parsing.MapGrammar
             var right = Visit(node.Right);
             if (left == null || right == null)
                 return null;
-            if (left.GetType() == typeof(string) || right.GetType() == typeof(string))
+            if (left is string || right is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"{left} * {right}");
                 return null;
@@ -627,13 +627,16 @@ namespace Bve5_Parsing.MapGrammar
             var right = Visit(node.Right);
             if (left == null || right == null)
                 return null;
-            if (left.GetType() == typeof(string) || right.GetType() == typeof(string))
+            if (left is string || right is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"{left} / {right}");
                 return null;
             }
 
-            //TODO: 0除算対策
+            if (Convert.ToDouble(right) == 0)
+            {
+                return 0;
+            }
             return Convert.ToDouble(left) / Convert.ToDouble(right);
         }
 
@@ -647,7 +650,7 @@ namespace Bve5_Parsing.MapGrammar
             var inner = Visit(node.InnerNode);
             if (inner == null)
                 return null;
-            if (inner.GetType() == typeof(string))
+            if (inner is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"- {inner}");
                 return null;
@@ -666,7 +669,7 @@ namespace Bve5_Parsing.MapGrammar
             var right = Visit(node.Right);
             if (left == null || right == null)
                 return null;
-            if (left.GetType() == typeof(string) || right.GetType() == typeof(string))
+            if (left is string || right is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"{left} % {right}");
                 return null;
@@ -685,7 +688,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"abs({value})");
                 return null;
@@ -704,7 +707,7 @@ namespace Bve5_Parsing.MapGrammar
             var x = Visit(node.X);
             if (y == null || x == null)
                 return null;
-            if (y.GetType() == typeof(string) || x.GetType() == typeof(string))
+            if (y is string || x is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"atan2({y}, {x})");
                 return null;
@@ -723,7 +726,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"ceil({value})");
                 return null;
@@ -741,7 +744,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"cos({value})");
                 return null;
@@ -759,7 +762,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"exp({value})");
                 return null;
@@ -777,7 +780,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"floor({value})");
                 return null;
@@ -795,7 +798,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"log({value})");
                 return null;
@@ -814,7 +817,7 @@ namespace Bve5_Parsing.MapGrammar
             var y = Visit(node.Y);
             if (x == null || y == null)
                 return null;
-            if (x.GetType() == typeof(string) || y.GetType() == typeof(string))
+            if (x is string || y is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"pow({x}, {y})");
                 return null;
@@ -837,7 +840,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return random.NextDouble();
-            if (value.GetType() == typeof(string) || Convert.ToInt32(value) < 0)
+            if (value is string || Convert.ToInt32(value) < 0)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"rand({value})");
                 return null;
@@ -856,7 +859,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"sin({value})");
                 return null;
@@ -874,7 +877,7 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return null;
-            if (value.GetType() == typeof(string))
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"sqrt({value})");
                 return null;
