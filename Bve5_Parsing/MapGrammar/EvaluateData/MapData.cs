@@ -10,7 +10,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
     public class MapData
     {
         #region フィールド
-        private readonly List<Statement> _statements;
+        internal readonly List<Statement> _statements;
         #endregion
 
         #region プロパティ

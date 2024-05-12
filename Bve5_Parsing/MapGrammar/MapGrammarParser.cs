@@ -164,7 +164,8 @@ namespace Bve5_Parsing.MapGrammar
                 ;
 
             if (value == null) { return null; }
-
+            // OPENBVE: Sort by distance to make parsing easier
+            value._statements.Sort((x, y) => x.Distance.CompareTo(y.Distance));
             return value;
         }
 
