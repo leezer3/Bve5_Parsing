@@ -122,7 +122,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
         {
             // 関数名は必ず2文字以上あるので
             if (funcName.Length < 2)
-                throw new ArgumentOutOfRangeException("関数名が短すぎます。");
+                throw new ArgumentOutOfRangeException(funcName,"Function Name must be a minimum of two characters in length.");
 
             // ASTのインスタンス取得
             var astClassName = elementName.GetStringValue() + char.ToUpper(funcName[0]) + funcName.Substring(1) + "Node";
@@ -134,7 +134,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
             var astClassType = Type.GetType(typeof(MapGrammarAstNodes).Namespace + "." + astClassName, false, true); // case invariant!
 
             if (astClassType == null)
-                throw new NotSupportedException("対応するAstNodeの取得に失敗しました。");
+                throw new NotSupportedException("Failed to find the corresponding AST Class Type.");
 
             var instanceArg = new object[] { ctx.Start, ctx.Stop };
             var node = Activator.CreateInstance(astClassType, instanceArg) as SyntaxNode;
@@ -168,7 +168,7 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
                     continue;
                 }
 
-                throw new NotSupportedException($"引数：{arg.Name}に対応するContextの取得に失敗しました。");
+                throw new NotSupportedException($"Failed to obtain the AST Context for Argument Name：{arg.Name}");
             }
 
             // 省略可能引数の取得

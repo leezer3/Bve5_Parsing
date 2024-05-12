@@ -70,19 +70,19 @@
     public class MessageGenerator
     {
         // ReSharper disable UnusedMember.Global
-        public virtual string InvalidMapFormat => "有効なマップファイルではありません。";
-        public virtual string FailedPredicate => "{0}の検証に失敗しました。";
-        public virtual string InputMismatch => "入力文字列{0}が予期されたマップ構文'{1}'と一致しませんでした。";
-        public virtual string MissingToken => "入力文字列{0}にマップ構文'{1}'がありません。";
-        public virtual string NoViable => "入力文字列{0}のマップ構文を特定できませんでした。";
-        public virtual string UnwantedToken => "入力文字列{0}が予期されたマップ構文'{1}'と一致しませんでした。";
-        public virtual string InvalidArgument => "{0}は無効な引数です。";
-        public virtual string InvalidExpression => "'{0}'は有効な式ではありません。";
-        public virtual string FilePathNotSpecified => "ファイルパスが指定されていません。";
-        public virtual string FileNotFound => "指定されたファイル「{0}」は存在しません。";
-        public virtual string FileFailedLoad => "「{0}」の読み込みに失敗しました。";
+        public virtual string InvalidMapFormat => "Not a valid map file.";
+        public virtual string FailedPredicate => "Verification failed for {0}";
+        public virtual string InputMismatch => "The input string {0} is not valid for the expected Map Format {1}";
+        public virtual string MissingToken => "The input string {0} is missing the map syntax token {1}";
+        public virtual string NoViable => "Unable to determine the map syntax for input {0}";
+        public virtual string UnwantedToken => "The input string {0} did not match the expected map syntax {1}";
+        public virtual string InvalidArgument => "{0} is not a valid argument.";
+        public virtual string InvalidExpression => "{0} is not a valid expression.";
+        public virtual string FilePathNotSpecified => "No file path was specified.";
+        public virtual string FileNotFound => "The specified file {0} does not exist.";
+        public virtual string FileFailedLoad => "The specified file {0} failed to load.";
         // ReSharper restore UnusedMember.Global
-        public virtual string FilePath => "（ファイルパス：{0}）";
+        public virtual string FilePath => "（File path：{0}）";
 
         public virtual string GetMessage(ParseMessageType type, string filePath, params object[] args)
         {

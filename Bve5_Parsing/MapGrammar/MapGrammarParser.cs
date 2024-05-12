@@ -140,7 +140,7 @@ namespace Bve5_Parsing.MapGrammar
             {
                 reader.Read(fileInfo);
                 if (reader.Text == null)
-                    throw new IOException(); // TODO
+                    throw new InvalidDataException("Empty BVETS Map file encountered at path: " + filePath);
                 return Parse(reader.Text, filePath, option);
             }
         }
