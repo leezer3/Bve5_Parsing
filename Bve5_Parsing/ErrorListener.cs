@@ -11,9 +11,6 @@ namespace Bve5_Parsing
     /// </summary>
     public class ParseErrorListener : BaseErrorListener
     {
-        #region フィールド
-        #endregion
-
         #region プロパティ
         public MessageGenerator MessageGenerator { get; }
 

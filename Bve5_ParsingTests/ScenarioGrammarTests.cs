@@ -1,8 +1,6 @@
 ﻿using System;
 using Xunit;
 using Bve5_Parsing.ScenarioGrammar;
-using System.Collections.Generic;
-using System.Collections;
 
 namespace Bve5_ParsingTests
 {

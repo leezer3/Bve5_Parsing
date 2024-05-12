@@ -2,9 +2,7 @@
  * このファイルはdoc/createMapGrammarTemplate.jsによって自動生成されています。
  * 編集は行わないでください。
  */
-using System;
 using Xunit;
-using Bve5_Parsing.MapGrammar;
 using Bve5_Parsing.MapGrammar.EvaluateData;
 using static Bve5_ParsingTests.MapGrammarTestUtility;
 using System.Collections.Generic;

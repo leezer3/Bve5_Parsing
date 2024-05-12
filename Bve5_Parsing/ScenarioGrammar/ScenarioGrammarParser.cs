@@ -60,11 +60,9 @@ namespace Bve5_Parsing.ScenarioGrammar
 
             parser.AddErrorListener(ErrorListener);
 
-            ScenarioData value = null;
             var cst = parser.root();
             var ast = new BuildAstVisitor().VisitRoot(cst);
-            value = (ScenarioData)new EvaluateScenarioGrammarVisitor().Visit(ast);
-            return value;
+            return (ScenarioData)new EvaluateScenarioGrammarVisitor().Visit(ast);
         }
     }
 }

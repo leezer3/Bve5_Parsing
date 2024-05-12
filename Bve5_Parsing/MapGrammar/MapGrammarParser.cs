@@ -202,7 +202,7 @@ namespace Bve5_Parsing.MapGrammar
                 ErrorListener.Errors.Clear();
             }
 
-            RootNode ast = null;
+            RootNode ast;
             if (headerInfo.Item1 != null && (headerInfo.Item1[0] == '1' || headerInfo.Item1[0] == '0'))
             {
                 // V1Parser
