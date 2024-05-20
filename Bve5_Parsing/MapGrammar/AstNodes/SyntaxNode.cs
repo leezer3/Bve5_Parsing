@@ -125,11 +125,11 @@ namespace Bve5_Parsing.MapGrammar.AstNodes
                 throw new ArgumentOutOfRangeException(funcName,"Function Name must be a minimum of two characters in length.");
 
             // ASTのインスタンス取得
-            var astClassName = elementName.GetStringValue() + char.ToUpper(funcName[0]) + funcName.Substring(1) + "Node";
+            var astClassName = elementName.GetStringValueCached() + char.ToUpper(funcName[0]) + funcName.Substring(1) + "Node";
 
             if (element2Name != null)
             {
-                astClassName = elementName.GetStringValue() + element2Name + funcName + "Node";
+                astClassName = elementName.GetStringValueCached() + element2Name + funcName + "Node";
             }
             var astClassType = Type.GetType(typeof(MapGrammarAstNodes).Namespace + "." + astClassName, false, true); // case invariant!
 

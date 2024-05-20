@@ -874,7 +874,7 @@ namespace Bve5_Parsing.MapGrammar.V1Parser
         public override MapGrammarAstNodes VisitTrain([NotNull] TrainContext context)
         {
             var funcName = context.func.Text;
-            if (funcName.ToLower() == MapFunctionName.Enable.GetStringValue().ToLower())
+            if (funcName.ToLower() == MapFunctionName.Enable.GetStringValueCached().ToLower())
             {
                 var node = new TrainEnableNode(context.Start, context.Stop);
                 node.Key = Visit(context.key);

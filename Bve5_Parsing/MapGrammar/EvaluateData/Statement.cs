@@ -223,7 +223,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <returns></returns>
         public virtual SyntaxData ToSyntaxData()
         {
-            var funcName = FunctionName == null ? string.Empty : FunctionName.GetStringValue();
+            var funcName = FunctionName == null ? string.Empty : FunctionName.GetStringValueCached();
             var syntax = new SyntaxData();
             syntax.Distance = Distance;
 
@@ -233,8 +233,8 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
                 var subElem = (MapSubElementName)GetType().GetProperty("SubElementName").GetValue(this, null);
                 syntax.MapElement = new[]
                 {
-                    ElementName.GetStringValue().ToLower(),
-                    subElem.GetStringValue().ToLower()
+                    ElementName.GetStringValueCached().ToLower(),
+                    subElem.GetStringValueCached().ToLower()
                 };
             }
             else
@@ -242,7 +242,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
                 //Syntax1 or Syntax2
                 syntax.MapElement = new[]
                 {
-                    ElementName.GetStringValue().ToLower()
+                    ElementName.GetStringValueCached().ToLower()
                 };
             }
 
