@@ -449,6 +449,8 @@ namespace Bve5_Parsing.MapGrammar {
         // track
         Cant,
         Radius,
+        RadiusH,
+        RadiusV,
         // RGBA
         Red,
         Green,

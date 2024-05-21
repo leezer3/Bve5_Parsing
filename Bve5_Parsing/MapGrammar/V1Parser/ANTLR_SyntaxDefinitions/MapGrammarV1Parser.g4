@@ -62,7 +62,7 @@ gradient :
 // Other track
 track :
 	  KEY_START key=arg KEY_END func=GAUGE ARG_START gaugeArgs=arg ARG_END
-	| KEY_START key=arg KEY_END func=POSITION ARG_START x=arg COMMA y=arg (COMMA radiush=arg COMMA radiusv=arg)? ARG_END
+	| KEY_START key=arg KEY_END func=POSITION ARG_START x=arg COMMA y=arg (COMMA radiush=arg (COMMA radiusv=arg)?)? ARG_END
 	| KEY_START key=arg KEY_END func=CANT ARG_START cant=arg ARG_END
 	;
 
