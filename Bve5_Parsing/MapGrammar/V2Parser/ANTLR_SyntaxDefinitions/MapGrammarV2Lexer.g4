@@ -143,7 +143,17 @@ fragment X: [xX];
 fragment Y: [yY];
 fragment Z: [zZ];
 
-WHITESPACE : (' ' | '\u3000' | '\t' | '\r' | '\n' )+ -> skip;
+/*
+* HACK: Double quotes seem to be ignored by BVE5
+* See for example TRTA Metro, which has them enclosing large numbers of
+* cells
+*
+* These have probably been added by some variant of a CSV
+* editor (?)
+*
+* With this in mind, treat them as whitespace at the minute
+*/
+WHITESPACE : (' ' | '\u3000' | '\t' | '\r' | '\n' | '\"' )+ -> skip;
 COMMENT : ('//' | '#') ~[\r\n]* -> skip;
 
 //変数
