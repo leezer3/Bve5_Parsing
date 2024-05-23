@@ -66,10 +66,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// ステートメントが引数を保持しているかどうか
         /// </summary>
         /// <param name="name">引数名</param>
-        /// <param name="isIgnoreCase">大文字小文字を無視するかどうか</param>
         /// <param name="includeNullArgument">値がNullの引数を保持していると判定するかどうか</param>
         /// <returns></returns>
-        public bool HasArgument(ArgumentName name, bool isIgnoreCase = false, bool includeNullArgument = false)
+        public bool HasArgument(ArgumentName name, bool includeNullArgument = false)
         {
             var property = GetArgumentProperty(name);
             if (property == null) return false;
@@ -86,7 +85,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <returns></returns>
         public object GetArgumentValue(ArgumentName name)
         {
-            return GetArgumentProperty(name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)?
+            return GetArgumentProperty(name)?
                 .GetValue(this, null);
         }
 
@@ -189,9 +188,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// </summary>
         /// <param name="name">引数名</param>
         /// <returns></returns>
-        protected internal PropertyInfo GetArgumentProperty(ArgumentName name, BindingFlags flags = BindingFlags.Default)
+        protected internal PropertyInfo GetArgumentProperty(ArgumentName name)
         {
-            return GetArgumentProperties(flags)
+            return GetArgumentProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .FirstOrDefault(p => p.Name == name.ToString());
         }
 
