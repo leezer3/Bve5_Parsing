@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;</TargetFrameworks>
     <PackageId>Bve5_Parsing.OpenBVE</PackageId>
-    <Version>1.1.8</Version>
+    <Version>1.1.9</Version>
     <PackageLicense>https://github.com/leezer3/Bve5_Parsing/blob/master/License.md</PackageLicense>
     <Description>BveTrainsim5.7 Syntax parsing library.
 Bve5.7構文のパーサライブラリです。</Description>

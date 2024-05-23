@@ -462,7 +462,7 @@ namespace Bve5_Parsing.MapGrammar {
         End,
         // TFO
         TrainKey,
-        TrainFilePath,
+        FilePath,
         Direction,
         Time,
         Decelerate,
