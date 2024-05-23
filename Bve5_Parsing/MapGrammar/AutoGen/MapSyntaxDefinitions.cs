@@ -468,7 +468,8 @@ namespace Bve5_Parsing.MapGrammar {
         Decelerate,
         StopTime,
         Accelerate,
-        Speed
+        Speed,
+        TrackKey
     }
 
 }
