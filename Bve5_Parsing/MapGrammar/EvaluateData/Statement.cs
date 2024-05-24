@@ -142,7 +142,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <returns></returns>
         public IEnumerable<string> GetArgumentNames(bool includeNullArgument = false)
         {
-            return GetArgumentProperties()
+            return GetArgumentProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .Where(p => includeNullArgument || p.GetValue(this, null) != null)
                 .Select(p => p.Name)
                 ;
