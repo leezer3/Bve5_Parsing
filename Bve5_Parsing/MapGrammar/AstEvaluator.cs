@@ -6,7 +6,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Bve5_Parsing.MapGrammar.AstNodes;
 using Bve5_Parsing.MapGrammar.EvaluateData;
-using Hnx8.ReadJEnc;
 
 namespace Bve5_Parsing.MapGrammar
 {
@@ -1030,27 +1029,28 @@ namespace Bve5_Parsing.MapGrammar
 #if NETSTANDARD2_0
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); // Shift-Jisを扱うために必要
 #endif
-            var file = new FileInfo(absolutePath);
-            using (var reader = new FileReader(file))
+            bool knownEncoding = CharsetDectector.DetermineFileEncoding(absolutePath, out Encoding fileEncoding);
+            if (!knownEncoding)
             {
-                reader.Read(file);
-                var includeText = reader.Text;
-                if (includeText == null)
-                {
-                    ErrorListener.AddNewError(ParseMessageType.FileFailedLoad, null, node.Start, path);
-                    return returnData;
-                }
-
-                // Include先構文を評価して追加
-                var parser = new MapGrammarParser(ErrorListener);
-                var includeAst = parser.ParseToAst(includeText, absolutePath, MapGrammarParser.MapGrammarParserOption.ParseIncludeSyntaxRecursively | MapGrammarParser.MapGrammarParserOption.NoClearErrors);
-                var evaluator = new EvaluateMapGrammarVisitorWithInclude(Store, dirAbsolutePath, ErrorListener, NowDistance);
-                var includeData = (MapData)evaluator.Visit(includeAst);
-
-                evaluateData.AddStatements(includeData.Statements);
-                evaluateData.OverwriteListPath(includeData);
-                NowDistance = evaluator.NowDistance;
+                ErrorListener.AddNewError(ParseMessageType.UnknownEncoding, absolutePath, 0, 0);
             }
+            string includeText = File.ReadAllText(absolutePath, fileEncoding);
+            if (string.IsNullOrEmpty(includeText))
+            {
+                ErrorListener.AddNewError(ParseMessageType.FileFailedLoad, null, node.Start, path);
+                return returnData;
+            }
+
+            // Include先構文を評価して追加
+            var parser = new MapGrammarParser(ErrorListener);
+            var includeAst = parser.ParseToAst(includeText, absolutePath, MapGrammarParser.MapGrammarParserOption.ParseIncludeSyntaxRecursively | MapGrammarParser.MapGrammarParserOption.NoClearErrors);
+            var evaluator = new EvaluateMapGrammarVisitorWithInclude(Store, dirAbsolutePath, ErrorListener, NowDistance);
+            var includeData = (MapData)evaluator.Visit(includeAst);
+
+            evaluateData.AddStatements(includeData.Statements);
+            evaluateData.OverwriteListPath(includeData);
+            NowDistance = evaluator.NowDistance;
+            
 
             #endregion
 

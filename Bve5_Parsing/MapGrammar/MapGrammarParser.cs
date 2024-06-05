@@ -136,13 +136,14 @@ namespace Bve5_Parsing.MapGrammar
 #if NETSTANDARD2_0
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); // Shift-Jisを扱うために必要
 #endif
-            using (var reader = new Hnx8.ReadJEnc.FileReader(fileInfo))
+            bool knownEncoding = CharsetDectector.DetermineFileEncoding(filePath, out Encoding fileEncoding);
+            if (!knownEncoding)
             {
-                reader.Read(fileInfo);
-                if (reader.Text == null)
-                    throw new InvalidDataException("Empty BVETS Map file encountered at path: " + filePath);
-                return Parse(reader.Text, filePath, option);
+                ErrorListener.AddNewError(ParseMessageType.UnknownEncoding, filePath, 0, 0);
             }
+            string Text = File.ReadAllText(filePath, fileEncoding);
+
+            return Parse(Text, filePath, option);
         }
 
         /// <summary>

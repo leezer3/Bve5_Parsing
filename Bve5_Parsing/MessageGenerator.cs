@@ -59,7 +59,15 @@
         /// <summary>
         /// Default composite format string: 「{0}」の読み込みに失敗しました。
         /// </summary>
-        FileFailedLoad
+        FileFailedLoad,
+        /// <summary>
+        /// Default composite format string: 「{0}」の読み込みに失敗しました。
+        /// </summary>
+        FileEmpty,
+        /// <summary>
+        /// Default composite format string: 「{0}」の読み込みに失敗しました。
+        /// </summary>
+        UnknownEncoding
     }
 
     /// <summary>
@@ -81,6 +89,8 @@
         public virtual string FilePathNotSpecified => "No file path was specified.";
         public virtual string FileNotFound => "The specified file {0} does not exist.";
         public virtual string FileFailedLoad => "The specified file {0} failed to load.";
+        public virtual string FileEmpty => "The specified file {0} appears to be empty.";
+        public virtual string UnknownEncoding => "Unable to determine the character encoding ";
         // ReSharper restore UnusedMember.Global
         public virtual string FilePath => "（File path：{0}）";
 
