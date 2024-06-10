@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -946,7 +946,10 @@ namespace Bve5_Parsing.MapGrammar
         {
             if (string.IsNullOrEmpty(path))
                 return path;
-
+            if (path.ToLowerInvariant().IndexOf(@"atsex::") != -1)
+            {
+                throw new NotSupportedException("ATS-EX is not currently supported. ");
+            }
             var fileRelativePath = path.Replace('\\', Path.DirectorySeparatorChar).Replace('/', Path.DirectorySeparatorChar);
             var absolutePath = Path.GetFullPath(Path.Combine(dirAbsolutePath, fileRelativePath));
 
