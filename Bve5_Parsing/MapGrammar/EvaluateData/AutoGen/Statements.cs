@@ -2710,6 +2710,14 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         public override bool HasSubElement => false;
         #endregion SyntaxInfo
 
+        #region Args
+
+        /// <summary>
+        /// 引数：走行速度 [km/h]
+        /// </summary>
+        [Argument]
+        public double? V { get; set; }
+        #endregion Args
 
         /// <summary>
         /// 新しいインスタンスを生成します。

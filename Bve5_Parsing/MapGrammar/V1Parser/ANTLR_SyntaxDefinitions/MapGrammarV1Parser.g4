@@ -112,7 +112,7 @@ beacon :
 // Speed limit
 speedlimit :
 	  DOT func=BEGIN ARG_START v=arg ARG_END
-	| DOT func=END ARG_START ARG_END
+	| DOT func=END ARG_START (v=arg) ARG_END
 	| DOT func=SET_SIGNAL ARG_START arg args* ARG_END
 	;
 

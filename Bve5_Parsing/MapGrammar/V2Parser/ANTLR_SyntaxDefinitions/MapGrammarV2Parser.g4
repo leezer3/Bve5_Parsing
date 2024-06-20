@@ -143,7 +143,7 @@ beacon :
 //速度制限
 speedlimit :
 	  DOT func=BEGIN OPN_PAR v=nullableExpr CLS_PAR
-	| DOT func=END OPN_PAR CLS_PAR
+	| DOT func=END OPN_PAR (v=nullableExpr) CLS_PAR
 	| DOT func=SET_SIGNAL OPN_PAR nullableExpr exprArgs* CLS_PAR
 	;
 
