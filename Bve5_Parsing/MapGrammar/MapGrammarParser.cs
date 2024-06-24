@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Antlr4.Runtime;
 using Bve5_Parsing.MapGrammar.AstNodes;
 using Bve5_Parsing.MapGrammar.EvaluateData;
@@ -155,6 +156,8 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns></returns>
         public MapData Parse(string input, string filePath, MapGrammarParserOption option = MapGrammarParserOption.None)
         {
+            // Yuck, but we're loading ANTLR and dependancies....
+            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             MapGrammarAstNodes ast = ParseToAst(input, filePath, option);
 
             if (ast == null) { return null; }
