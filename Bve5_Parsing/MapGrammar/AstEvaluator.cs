@@ -1052,9 +1052,6 @@ namespace Bve5_Parsing.MapGrammar
 
             evaluateData.AddStatements(includeData.Statements);
             evaluateData.OverwriteListPath(includeData);
-            NowDistance = evaluator.NowDistance;
-            
-
             #endregion
 
             return null;
