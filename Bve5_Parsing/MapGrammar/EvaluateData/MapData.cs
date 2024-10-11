@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -11,6 +12,8 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
     {
         #region フィールド
         internal readonly List<Statement> _statements;
+
+        internal readonly HashSet<string> _trackKeys;
         #endregion
 
         #region プロパティ
@@ -54,6 +57,10 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// 構文データ
         /// </summary>
         public ReadOnlyCollection<Statement> Statements { get; }
+
+        /// <summary>A list of the track keys in the route</summary>
+        public HashSet<string> TrackKeys => _trackKeys;
+
         #endregion
 
         /// <summary>
@@ -65,6 +72,8 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             Statements = _statements.AsReadOnly();
             Version = version;
             Encoding = encoding;
+            _trackKeys = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+            _trackKeys.Add("0");
         }
 
         /// <summary>
@@ -102,6 +111,9 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             else
                 _statements = syntaxes.ToList();
             Statements = _statements.AsReadOnly();
+
+            _trackKeys = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+            _trackKeys.Add("0");
         }
 
         /// <summary>
@@ -110,6 +122,10 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <param name="data"></param>
         public void AddStatement(Statement data)
         {
+            if(data.Key != null && data.ElementName == MapElementName.Track)
+            {
+                _trackKeys.Add(data.Key);
+            }
             _statements.Add(data);
         }
 
@@ -120,6 +136,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         public void AddStatements(IEnumerable<Statement> data)
         {
             _statements.AddRange(data);
+        }
+
+        public void AddTrackKeys(HashSet<string> data)
+        {
+            _trackKeys.UnionWith(data);
         }
 
         /// <summary>
