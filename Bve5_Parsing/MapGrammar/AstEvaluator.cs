@@ -950,42 +950,166 @@ namespace Bve5_Parsing.MapGrammar
             {
                 throw new NotSupportedException("ATS-EX is not currently supported. ");
             }
-            var fileRelativePath = path.Replace('\\', Path.DirectorySeparatorChar).Replace('/', Path.DirectorySeparatorChar);
-            var absolutePath = Path.GetFullPath(Path.Combine(dirAbsolutePath, fileRelativePath));
 
+            string absolutePath = CombineFile(dirAbsolutePath, path);
+            
             if (File.Exists(absolutePath))
                 return absolutePath;
+            return string.Empty;
+        }
 
-            // NTFSではパスの大文字小文字が無視されるが、ext3では区別されるため、環境によっては構文内に指定されたパスを取得できない可能性がある。
-            // そのため大文字小文字を無視してファイルパスを取得する
-            var splitPath = fileRelativePath.Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+        /*
+         * Path combination Function split from the OpenBVE API, so as to
+         * keep this project independent
+         */
 
-            // ディレクトリ取得
-            var originallyDirPath = dirAbsolutePath;
-            foreach (var singlePath in splitPath.Take(splitPath.Count() - 1))
+        /// <summary>The list of characters that are invalid in platform-independent relative paths.</summary>
+        private static readonly char[] InvalidPathChars = { ':', '*', '?', '"', '<', '>', '|' };
+
+        /// <summary>The list of characters at which relative paths are separated into parts.</summary>
+        private static readonly char[] PathSeparationChars = { '/', '\\' };
+
+        /// <summary>Checks whether the specified string consists only of periods.</summary>
+        /// <param name="text">The string to check.</param>
+        /// <returns>Whether the string consists only of periods.</returns>
+        private static bool IsAllPeriods(string text)
+        {
+            for (int i = 0; i < text.Length; i++)
             {
-                var tmpDirRelativePaths = Directory.EnumerateDirectories(originallyDirPath)
-                    .Concat(new List<string>() { ".", ".." })
-                    .Where(p => Regex.IsMatch(p, $"^{singlePath}$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
-                    .Select(p => Path.GetFullPath(Path.Combine(dirAbsolutePath, p)))
-                    ;
-
-                if (false == tmpDirRelativePaths.Any())
-                    return null;
-
-                originallyDirPath = tmpDirRelativePaths.First();
+                if (text[i] != '.')
+                {
+                    return false;
+                }
             }
+            return true;
+        }
 
-            // ファイル取得
-            var originallyAbsolutePath = Directory.EnumerateFiles(originallyDirPath)
-                .Where(p => Regex.IsMatch(p, $"^{splitPath.Last()}$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
-                .Select(p => Path.GetFullPath(Path.Combine(dirAbsolutePath, p)))
-                ;
-
-            if (false == originallyAbsolutePath.Any())
-                return null;
-
-            return originallyAbsolutePath.First();
+        /// <summary>Combines a platform-specific absolute path with a platform-independent relative path that points to a file.</summary>
+		/// <param name="absolute">The platform-specific absolute path.</param>
+		/// <param name="relative">The platform-independent relative path.</param>
+		/// <returns>Whether the operation succeeded and the specified file was found.</returns>
+		/// <exception cref="System.Exception">Raised when combining the paths failed, for example due to malformed paths or due to unauthorized access.</exception>
+		public static string CombineFile(string absolute, string relative)
+        {
+            if (string.IsNullOrEmpty(absolute))
+            {
+                throw new ArgumentException("The absolute path was empty.");
+            }
+            if (string.IsNullOrEmpty(relative))
+            {
+                throw new ArgumentException("The relative path was empty.");
+            }
+            int index = relative.IndexOf("??", StringComparison.Ordinal);
+            if (index >= 0)
+            {
+                string file = CombineFile(absolute, relative.Substring(0, index).TrimEnd());
+                if (File.Exists(file))
+                {
+                    return file;
+                }
+                return CombineFile(absolute, relative.Substring(index + 2).TrimStart());
+            }
+            if (relative.IndexOfAny(InvalidPathChars) >= 0)
+            {
+                throw new ArgumentException("The relative path contains invalid characters.");
+            }
+            string[] parts = relative.Split(PathSeparationChars, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (parts[i].Length != 0)
+                {
+                    /*
+					 * Consider only non-empty parts.
+					 * */
+                    if (IsAllPeriods(parts[i]))
+                    {
+                        if (i == parts.Length - 1)
+                        {
+                            /*
+							 * The last part must not be all periods because
+							 * it would reference a directory then, not a file.
+							 * */
+                            throw new ArgumentException("The relative path is malformed.");
+                        }
+                        /*
+						 * A string of periods is a reference to an
+						 * upper directory. A single period is the
+						 * current directory. For each additional
+						 * period, jump one directory up.
+						 * */
+                        for (int j = 1; j < parts[i].Length; j++)
+                        {
+                            absolute = Path.GetDirectoryName(absolute);
+                        }
+                    }
+                    else if (i == parts.Length - 1)
+                    {
+                        /*
+						 * The last part references a file.
+						 * */
+                        if (absolute == null) continue;
+                        string file = System.IO.Path.Combine(absolute, parts[i]);
+                        if (File.Exists(file))
+                        {
+                            return file;
+                        }
+                        /*
+						 * Try to find the file case-insensitively.
+						 * */
+                        if (Directory.Exists(absolute))
+                        {
+                            string[] files = Directory.GetFiles(absolute);
+                            for (int j = 0; j < files.Length; j++)
+                            {
+                                string name = System.IO.Path.GetFileName(files[j]);
+                                if (name != null && name.Equals(parts[i], StringComparison.OrdinalIgnoreCase))
+                                {
+                                    return files[j];
+                                }
+                            }
+                        }
+                        return file;
+                    }
+                    else
+                    {
+                        /*
+						 * This part references a directory.
+						 * */
+                        if (absolute == null) continue;
+                        string directory = System.IO.Path.Combine(absolute, parts[i]);
+                        if (Directory.Exists(directory))
+                        {
+                            absolute = directory;
+                        }
+                        else
+                        {
+                            /*
+							 * Try to find the directory case-insensitively.
+							 * */
+                            bool found = false;
+                            if (Directory.Exists(absolute))
+                            {
+                                string[] directories = Directory.GetDirectories(absolute);
+                                for (int j = 0; j < directories.Length; j++)
+                                {
+                                    string name = System.IO.Path.GetFileName(directories[j]);
+                                    if (name != null && name.Equals(parts[i], StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        absolute = directories[j];
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!found)
+                            {
+                                absolute = directory;
+                            }
+                        }
+                    }
+                }
+            }
+            throw new ArgumentException("The reference to the file is malformed.");
         }
 
         /// <summary>
