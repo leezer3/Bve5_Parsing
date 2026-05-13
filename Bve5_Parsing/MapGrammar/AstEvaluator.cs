@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -891,7 +892,7 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>数値(String)</returns>
         public override object Visit(NumberNode node)
         {
-            return double.Parse(node.Value.Text, System.Globalization.NumberStyles.AllowDecimalPoint);
+            return double.Parse(node.Value.Text, NumberStyles.Any);
         }
 
         /// <summary>

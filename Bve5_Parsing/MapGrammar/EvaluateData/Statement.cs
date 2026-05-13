@@ -1,5 +1,6 @@
 ﻿using Bve5_Parsing.MapGrammar.Attributes;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -119,7 +120,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             {
                 return 0;
             }
-            return double.Parse(str);
+            return double.Parse(str, NumberStyles.Any);
         }
 
         /// <summary>

@@ -80,9 +80,10 @@ DOT : '.';
 COMMA : ',';
 
 //数字
-NUM : [0-9]+ ('.' [0-9]*)?
-	  | '.' [0-9]+
+NUM : [0-9]+ ('.' [0-9]*)? EXPO?
+	  | '.' [0-9]+ EXPO?
 ;
+
 NULL : N U L L;
 
 //距離変数
@@ -142,6 +143,7 @@ fragment W: [wW];
 fragment X: [xX];
 fragment Y: [yY];
 fragment Z: [zZ];
+fragment EXPO: [Ee] [+\-]? [0-9]+;
 
 /*
 * HACK: Double quotes seem to be ignored by BVE5

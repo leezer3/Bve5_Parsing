@@ -64,9 +64,10 @@ STATE_END : ';';
 DOT : '.';
 
 // Numbers
-NUM : [0-9]+ ('.' [0-9]*)?
-	  | '.' [0-9]+
+NUM : [0-9]+ ('.' [0-9]*)? EXPO?
+	  | '.' [0-9]+ EXPO?
 ;
+
 
 // Brackets
 ARG_START : '(' -> pushMode(ARG_MODE);
@@ -103,6 +104,7 @@ fragment W : [wW];
 fragment X : [xX];
 fragment Y : [yY];
 fragment Z : [zZ];
+fragment EXPO: [Ee] [+\-]? [0-9]+;
 
 mode ARG_MODE;
 ARG_END: ')' WS* STATE_END -> popMode;
