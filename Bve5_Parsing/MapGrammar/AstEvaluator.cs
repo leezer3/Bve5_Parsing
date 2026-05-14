@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using Bve5_Parsing.MapGrammar.AstNodes;
 using Bve5_Parsing.MapGrammar.EvaluateData;
 
@@ -27,6 +24,11 @@ namespace Bve5_Parsing.MapGrammar
         /// 評価結果
         /// </summary>
         protected MapData evaluateData;
+
+        /// <summary>
+        /// The shared random number generator
+        /// </summary>
+        private readonly Random Random = new Random();
 
         /// <summary>
         /// 現在評価中の距離程
@@ -832,21 +834,19 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>演算後の数値(Double)</returns>
         public override object Visit(RandNode node)
         {
-            Random random = new Random();
-
             if (node.Value == null)
-                return random.NextDouble();
+                return Random.NextDouble();
 
             var value = Visit(node.Value);
             if (value == null)
-                return random.NextDouble();
+                return Random.NextDouble();
             if (value is string || Convert.ToInt32(value) < 0)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"rand({value})");
                 return null;
             }
 
-            return random.Next(Convert.ToInt32(value));
+            return Random.Next(Convert.ToInt32(value));
         }
 
         /// <summary>
