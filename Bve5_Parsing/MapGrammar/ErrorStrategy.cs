@@ -61,6 +61,11 @@ namespace Bve5_Parsing.MapGrammar
             BeginErrorCondition(recognizer);
             IToken t = recognizer.CurrentToken;
             string tokenName = GetTokenErrorDisplay(t);
+            if (tokenName == "';'")
+            {
+                // empty line comment in V2 map syntax, but we can't easily treat as whitespace due to it being an argument separator
+                return;
+            }
             IntervalSet expecting = GetExpectedTokens(recognizer);
 
             var msg = ErrorMessage.GetMessage(ParseMessageType.UnwantedToken, FilePath, tokenName, expecting.ToString(recognizer.Vocabulary));
