@@ -840,13 +840,20 @@ namespace Bve5_Parsing.MapGrammar
             var value = Visit(node.Value);
             if (value == null)
                 return Random.NextDouble();
-            if (value is string || Convert.ToInt32(value) < 0)
+            long seed = Convert.ToInt64(value);
+            if (value is string)
             {
                 ErrorListener.AddNewError(ParseMessageType.InvalidExpression, null, node.Start, $"rand({value})");
                 return null;
             }
-
-            return Random.Next(Convert.ToInt32(value));
+            if (seed > Int32.MaxValue || seed < 0)
+            {
+                // Estobr\瀬戸大橋・予讃・土讃線 1M.txt
+                // seed greater than Int32.MaxValue
+                seed = 0;
+            }
+            
+            return Random.Next((int)seed);
         }
 
         /// <summary>
