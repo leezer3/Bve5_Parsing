@@ -31,11 +31,11 @@ namespace Bve5_ParsingTests
             Assert.NotNull(expected);
             Assert.Equal(expected.Version, actual.Version);
             Assert.Equal(expected.Encoding, actual.Encoding);
-            Assert.Equal(expected.StructureListPath, actual.StructureListPath);
-            Assert.Equal(expected.StationListPath, actual.StationListPath);
-            Assert.Equal(expected.SignalListPath, actual.SignalListPath);
-            Assert.Equal(expected.SoundListPath, actual.SoundListPath);
-            Assert.Equal(expected.Sound3DListPath, actual.Sound3DListPath);
+            Assert.Equal(expected.StructureListPaths, actual.StructureListPaths);
+            Assert.Equal(expected.StationListPaths, actual.StationListPaths);
+            Assert.Equal(expected.SignalListPaths, actual.SignalListPaths);
+            Assert.Equal(expected.SoundListPaths, actual.SoundListPaths);
+            Assert.Equal(expected.Sound3DListPaths, actual.Sound3DListPaths);
 
             Assert.Equal(expected.Statements.Count(), actual.Statements.Count());
             for (var i = 0; i < expected.Statements.Count(); i++)

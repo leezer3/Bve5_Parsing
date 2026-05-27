@@ -133,11 +133,11 @@ namespace Bve5_Parsing
             //結果の表示
             Console.WriteLine($"Version: {data.Version}");
             Console.WriteLine($"Encoding: {data.Encoding}");
-            Console.WriteLine($"StructureListPath: {data.StructureListPath}");
-            Console.WriteLine($"StationListPath: {data.StationListPath}");
-            Console.WriteLine($"SignalListPath: {data.SignalListPath}");
-            Console.WriteLine($"SoundListPath: {data.SoundListPath}");
-            Console.WriteLine($"Sound3DListPath: {data.Sound3DListPath}");
+            Console.WriteLine($"StructureListPath: {data.StructureListPaths}");
+            Console.WriteLine($"StationListPath: {data.StationListPaths}");
+            Console.WriteLine($"SignalListPath: {data.SignalListPaths}");
+            Console.WriteLine($"SoundListPath: {data.SoundListPaths}");
+            Console.WriteLine($"Sound3DListPath: {data.Sound3DListPaths}");
             foreach (var statement in data.Statements.Select(s => s.ToSyntaxData()))
             {
                 Console.WriteLine("---------------SyntaxData----------------");

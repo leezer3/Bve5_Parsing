@@ -31,27 +31,27 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <summary>
         /// ストラクチャリストのファイルパス
         /// </summary>
-        public string StructureListPath { get; protected internal set; }
+        public List<string> StructureListPaths { get; protected internal set; }
 
         /// <summary>
         /// 停車場リストのファイルパス
         /// </summary>
-        public string StationListPath { get; protected internal set; }
+        public List<string> StationListPaths { get; protected internal set; }
 
         /// <summary>
         /// 信号リストのファイルパス
         /// </summary>
-        public string SignalListPath { get; protected internal set; }
+        public List<string> SignalListPaths { get; protected internal set; }
 
         /// <summary>
         /// 音リストのファイルパス
         /// </summary>
-        public string SoundListPath { get; protected internal set; }
+        public List<string> SoundListPaths { get; protected internal set; }
 
         /// <summary>
         /// 固定音源リストのファイルパス
         /// </summary>
-        public string Sound3DListPath { get; protected internal set; }
+        public List<string> Sound3DListPaths { get; protected internal set; }
 
         /// <summary>
         /// 構文データ
@@ -74,6 +74,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             Encoding = encoding;
             _trackKeys = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
             _trackKeys.Add("0");
+            SignalListPaths = new List<string>();
+            SoundListPaths = new List<string>();
+            Sound3DListPaths = new List<string>();
+            StationListPaths = new List<string>();
+            StructureListPaths = new List<string>();
         }
 
         /// <summary>
@@ -98,13 +103,20 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             IEnumerable<Statement> syntaxes = null
             )
         {
+            
+            SignalListPaths = new List<string>();
+            SoundListPaths = new List<string>();
+            Sound3DListPaths = new List<string>();
+            StationListPaths = new List<string>();
+            StructureListPaths = new List<string>();
+
             Version = version;
             Encoding = encoding;
-            StructureListPath = strListPath;
-            StationListPath = staListPath;
-            SignalListPath = sigListPath;
-            SoundListPath = souListPath;
-            Sound3DListPath = so3ListPath;
+            StructureListPaths.Add(strListPath);
+            StationListPaths.Add(staListPath);
+            SignalListPaths.Add(sigListPath);
+            SoundListPaths.Add(souListPath);
+            Sound3DListPaths.Add(so3ListPath);
 
             if (syntaxes == null)
                 _statements = new List<Statement>();
@@ -153,19 +165,19 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             switch (elementName)
             {
                 case "structure":
-                    StructureListPath = path;
+                    StructureListPaths.Add(path);
                     break;
                 case "station":
-                    StationListPath = path;
+                    StationListPaths.Add(path);
                     break;
                 case "signal":
-                    SignalListPath = path;
+                    SignalListPaths.Add(path);
                     break;
                 case "sound":
-                    SoundListPath = path;
+                    SoundListPaths.Add(path);
                     break;
                 case "sound3d":
-                    Sound3DListPath = path;
+                    Sound3DListPaths.Add(path);
                     break;
             }
         }
@@ -176,11 +188,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <param name="data"></param>
         public void OverwriteListPath(MapData data)
         {
-            if (data.StructureListPath != null) { StructureListPath = data.StructureListPath; }
-            if (data.StationListPath != null) { StationListPath = data.StationListPath; }
-            if (data.SignalListPath != null) { SignalListPath = data.SignalListPath; }
-            if (data.SoundListPath != null) { SoundListPath = data.SoundListPath; }
-            if (data.Sound3DListPath != null) { Sound3DListPath = data.Sound3DListPath; }
+            if (data.StructureListPaths != null) { StructureListPaths = data.StructureListPaths; }
+            if (data.StationListPaths != null) { StationListPaths = data.StationListPaths; }
+            if (data.SignalListPaths != null) { SignalListPaths = data.SignalListPaths; }
+            if (data.SoundListPaths != null) { SoundListPaths = data.SoundListPaths; }
+            if (data.Sound3DListPaths != null) { Sound3DListPaths = data.Sound3DListPaths; }
         }
 
         #region Override
@@ -199,11 +211,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             return
                 m.Version == Version &&
                 m.Encoding == Encoding &&
-                m.StructureListPath == StructureListPath &&
-                m.StationListPath == StationListPath &&
-                m.SignalListPath == SignalListPath &&
-                m.SoundListPath == SoundListPath &&
-                m.Sound3DListPath == Sound3DListPath &&
+                m.StructureListPaths == StructureListPaths &&
+                m.StationListPaths == StationListPaths &&
+                m.SignalListPaths == SignalListPaths &&
+                m.SoundListPaths == SoundListPaths &&
+                m.Sound3DListPaths == Sound3DListPaths &&
                 m.Statements.SequenceEqual(Statements)
                 ;
         }
@@ -213,11 +225,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             return
                 Version.GetHashCode() ^
                 Encoding.GetHashCode() ^
-                StructureListPath.GetHashCode() ^
-                StationListPath.GetHashCode() ^
-                SignalListPath.GetHashCode() ^
-                SoundListPath.GetHashCode() ^
-                Sound3DListPath.GetHashCode() ^
+                StructureListPaths.GetHashCode() ^
+                StationListPaths.GetHashCode() ^
+                SignalListPaths.GetHashCode() ^
+                SoundListPaths.GetHashCode() ^
+                Sound3DListPaths.GetHashCode() ^
                 Statements.GetHashCode()
                 ;
         }

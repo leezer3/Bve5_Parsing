@@ -161,31 +161,31 @@ namespace Bve5_Parsing.MapGrammar
         #region リストファイルロード構文
         public override object Visit(StructureLoadNode node)
         {
-            evaluateData.StructureListPath = Visit(node.FilePath).ToString();
+            evaluateData.StructureListPaths.Add(Visit(node.FilePath).ToString());
             return null;
         }
 
         public override object Visit(StationLoadNode node)
         {
-            evaluateData.StationListPath = Visit(node.FilePath).ToString();
+            evaluateData.StationListPaths.Add(Visit(node.FilePath).ToString());
             return null;
         }
 
         public override object Visit(SignalLoadNode node)
         {
-            evaluateData.SignalListPath = Visit(node.FilePath).ToString();
+            evaluateData.SignalListPaths.Add(Visit(node.FilePath).ToString());
             return null;
         }
 
         public override object Visit(SoundLoadNode node)
         {
-            evaluateData.SoundListPath = Visit(node.FilePath).ToString();
+            evaluateData.SoundListPaths.Add(Visit(node.FilePath).ToString());
             return null;
         }
 
         public override object Visit(Sound3dLoadNode node)
         {
-            evaluateData.Sound3DListPath = Visit(node.FilePath).ToString();
+            evaluateData.Sound3DListPaths.Add(Visit(node.FilePath).ToString());
             return null;
         }
         #endregion
