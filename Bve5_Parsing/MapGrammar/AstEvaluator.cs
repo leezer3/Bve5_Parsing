@@ -1182,9 +1182,7 @@ namespace Bve5_Parsing.MapGrammar
             var evaluator = new EvaluateMapGrammarVisitorWithInclude(Store, dirAbsolutePath, ErrorListener, NowDistance);
             var includeData = (MapData)evaluator.Visit(includeAst);
 
-            evaluateData.AddStatements(includeData.Statements);
-            evaluateData.AddTrackKeys(includeData._trackKeys);
-            evaluateData.OverwriteListPath(includeData);
+            evaluateData.AddIncludeData(includeData);
             #endregion
 
             return null;

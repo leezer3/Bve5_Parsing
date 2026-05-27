@@ -31,27 +31,27 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <summary>
         /// ストラクチャリストのファイルパス
         /// </summary>
-        public List<string> StructureListPaths { get; protected internal set; }
+        public HashSet<string> StructureListPaths { get; protected internal set; }
 
         /// <summary>
         /// 停車場リストのファイルパス
         /// </summary>
-        public List<string> StationListPaths { get; protected internal set; }
+        public HashSet<string> StationListPaths { get; protected internal set; }
 
         /// <summary>
         /// 信号リストのファイルパス
         /// </summary>
-        public List<string> SignalListPaths { get; protected internal set; }
+        public HashSet<string> SignalListPaths { get; protected internal set; }
 
         /// <summary>
         /// 音リストのファイルパス
         /// </summary>
-        public List<string> SoundListPaths { get; protected internal set; }
+        public HashSet<string> SoundListPaths { get; protected internal set; }
 
         /// <summary>
         /// 固定音源リストのファイルパス
         /// </summary>
-        public List<string> Sound3DListPaths { get; protected internal set; }
+        public HashSet<string> Sound3DListPaths { get; protected internal set; }
 
         /// <summary>
         /// 構文データ
@@ -74,11 +74,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             Encoding = encoding;
             _trackKeys = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
             _trackKeys.Add("0");
-            SignalListPaths = new List<string>();
-            SoundListPaths = new List<string>();
-            Sound3DListPaths = new List<string>();
-            StationListPaths = new List<string>();
-            StructureListPaths = new List<string>();
+            SignalListPaths = new HashSet<string>();
+            SoundListPaths = new HashSet<string>();
+            Sound3DListPaths = new HashSet<string>();
+            StationListPaths = new HashSet<string>();
+            StructureListPaths = new HashSet<string>();
         }
 
         /// <summary>
@@ -104,11 +104,11 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             )
         {
             
-            SignalListPaths = new List<string>();
-            SoundListPaths = new List<string>();
-            Sound3DListPaths = new List<string>();
-            StationListPaths = new List<string>();
-            StructureListPaths = new List<string>();
+            SignalListPaths = new HashSet<string>();
+            SoundListPaths = new HashSet<string>();
+            Sound3DListPaths = new HashSet<string>();
+            StationListPaths = new HashSet<string>();
+            StructureListPaths = new HashSet<string>();
 
             Version = version;
             Encoding = encoding;
@@ -141,18 +141,15 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             _statements.Add(data);
         }
 
-        /// <summary>
-        /// 構文データリストを追加します。
-        /// </summary>
-        /// <param name="data"></param>
-        public void AddStatements(IEnumerable<Statement> data)
+        public void AddIncludeData(MapData data)
         {
-            _statements.AddRange(data);
-        }
-
-        public void AddTrackKeys(HashSet<string> data)
-        {
-            _trackKeys.UnionWith(data);
+            _statements.AddRange(data.Statements);
+            _trackKeys.UnionWith(data.TrackKeys);
+            SignalListPaths.UnionWith(data.SignalListPaths);
+            SoundListPaths.UnionWith(data.SoundListPaths);
+            Sound3DListPaths.UnionWith(data.Sound3DListPaths);
+            StationListPaths.UnionWith(data.StationListPaths);
+            StructureListPaths.UnionWith(data.StructureListPaths);
         }
 
         /// <summary>
@@ -180,19 +177,6 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
                     Sound3DListPaths.Add(path);
                     break;
             }
-        }
-
-        /// <summary>
-        /// リストファイルパスを引数に与えられたMapDataで上書きます。
-        /// </summary>
-        /// <param name="data"></param>
-        public void OverwriteListPath(MapData data)
-        {
-            if (data.StructureListPaths != null) { StructureListPaths = data.StructureListPaths; }
-            if (data.StationListPaths != null) { StationListPaths = data.StationListPaths; }
-            if (data.SignalListPaths != null) { SignalListPaths = data.SignalListPaths; }
-            if (data.SoundListPaths != null) { SoundListPaths = data.SoundListPaths; }
-            if (data.Sound3DListPaths != null) { Sound3DListPaths = data.Sound3DListPaths; }
         }
 
         #region Override
