@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -169,7 +170,11 @@ namespace Bve5_Parsing.MapGrammar
 
             if (value == null) { return null; }
             // OPENBVE: Sort by distance to make parsing easier
-            value._statements.Sort((x, y) => x.Distance.CompareTo(y.Distance));
+            // NOTE: we need to use OrderBy to perform a stable sort (otherwise order of statements at any given distance may vary from that of the routefile)
+            IOrderedEnumerable<Statement> orderedEnumerable = value._statements.OrderBy(statement => statement.Distance);
+            List<Statement> tempList = orderedEnumerable.ToList();
+            value._statements.Clear();
+            value._statements.AddRange(tempList);
             return value;
         }
 
