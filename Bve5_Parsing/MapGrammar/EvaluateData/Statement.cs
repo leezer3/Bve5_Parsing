@@ -145,7 +145,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <returns></returns>
         public string GetArgumentValueAsString(ArgumentName name)
         {
-            return GetArgumentValue(name)?.ToString();
+            return GetArgumentValue(name)?.ToString().Trim();
         }
 
         /// <summary>
