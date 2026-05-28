@@ -103,7 +103,14 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             {
                 return 0;
             }
-            return int.Parse(str);
+
+            if (int.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out int ret))
+            {
+                return ret;
+            }
+
+            return 0;
+
         }
 
         /// <summary>
@@ -120,7 +127,13 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
             {
                 return 0;
             }
-            return double.Parse(str, NumberStyles.Any);
+
+            if (double.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out double ret))
+            {
+                return ret;
+            }
+
+            return 0;
         }
 
         /// <summary>
@@ -218,8 +231,6 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData
         /// <summary>
         /// ステートメントからSyntaxDataを生成して返します。
         /// </summary>
-        /// <param name="evaluator"></param>
-        /// <param name="distance"></param>
         /// <returns></returns>
         public virtual SyntaxData ToSyntaxData()
         {
