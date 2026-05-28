@@ -300,7 +300,7 @@ namespace Bve5_Parsing.MapGrammar.EvaluateData {
         /// 引数：曲線半径 [m] (正: 右曲線, 負: 左曲線)
         /// </summary>
         [Argument]
-        public double? Radius { get; set; }
+        public double Radius { get; set; }
 
         /// <summary>
         /// 引数：カント [m]（省略可能）
