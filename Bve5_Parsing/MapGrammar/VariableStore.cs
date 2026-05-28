@@ -25,6 +25,9 @@ namespace Bve5_Parsing.MapGrammar
         /// <param name="val">変数の値</param>
         public void SetVar(string key, object val)
         {
+            // NOTE: Key is case invariant, so we'll convert to lower
+            // see Uchibo20, probably lots more
+            key = key.ToLowerInvariant();
             if (Vars.ContainsKey(key))
                 _vars[key] = val;
             else
@@ -38,6 +41,7 @@ namespace Bve5_Parsing.MapGrammar
         /// <returns>変数の値</returns>
         public object GetVar(string key)
         {
+            key = key.ToLowerInvariant();
             // TODO: 本家仕様を確認する。変数がない場合は0だっけ？ ⇒ 0を返すけどエラーも追加する必要がある
             if (Vars.ContainsKey(key))     /*変数が登録されてる*/
                 return _vars[key];
