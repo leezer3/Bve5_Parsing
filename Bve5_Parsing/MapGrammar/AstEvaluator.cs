@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -956,7 +956,8 @@ namespace Bve5_Parsing.MapGrammar
                 return path;
             if (path.ToLowerInvariant().IndexOf(@"atsex::") != -1)
             {
-                throw new NotSupportedException("ATS-EX is not currently supported. ");
+                ErrorListener.Errors.Add(new ParseError(ParseErrorLevel.NotImplemented, -1, -1, "ATS-EX include file detected- This will be skipped."));
+                return string.Empty;
             }
 
             string absolutePath = CombineFile(dirAbsolutePath, path);
@@ -1159,6 +1160,11 @@ namespace Bve5_Parsing.MapGrammar
             if (absolutePath == null)
             {
                 ErrorListener.AddNewError(ParseMessageType.FileNotFound, null, node.Start, path);
+                return returnData;
+            }
+
+            if (absolutePath == string.Empty)
+            {
                 return returnData;
             }
 #if NETSTANDARD2_0

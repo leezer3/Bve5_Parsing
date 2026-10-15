@@ -5,15 +5,12 @@
     /// </summary>
     public enum ParseErrorLevel
     {
-        /// <summary>
-        /// 警告
-        /// </summary>
+        /// <summary>A warning</summary>
         Warning,
-
-        /// <summary>
-        /// エラー
-        /// </summary>
-        Error
+        /// <summary>An error</summary>
+        Error,
+        /// <summary>A feature which has not been implemented</summary>
+        NotImplemented
     }
 
     /// <summary>
